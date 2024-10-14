@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="text-2xl font-bold">futuremind</div>
       <ul className="flex space-x-4">
         <li>
-          <a href="#about">ABOUT</a>
+          <a href="#about">ABOUT </a>
         </li>
         <li>
           <a href="#wework">WE WORK</a>
