@@ -1,16 +1,14 @@
 import React from "react";
-import { headerH, minWidth } from "../../styles/style";
-import Hamburger from "./Hamberger";
-import { Link } from "react-router-dom";
+import { minWidth } from "../../styles/style";
 import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
     <div
-      className={`min-w-[${minWidth}px] h-full overflow-auto bg-black text-white`}
+      className={`min-w-[${minWidth}px] h-full overflow-auto bg-future-gray-800 text-white`}
     >
       <Header />
-      <main className={`h-full pt-[${headerH}px]`}>{children}</main>
+      <main className={`h-full`}>{children}</main>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { navList } from "../../data/reponse";
+import { Link } from "react-router-dom";
 
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +16,7 @@ const Hamburger = () => {
   return (
     <>
       <button
-        className="w-10 h-10 flex items-center justify-center"
+        className="w-10 h-10 flex items-center justify-center z-20"
         onClick={toggleMenu}
       >
         <div className="w-10 h-9 relative">
@@ -57,7 +59,7 @@ const Hamburger = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black z-40 flex items-center justify-center"
+            className="fixed inset-0 bg-black z-10 flex items-center justify-center"
             initial="closed"
             animate="open"
             exit="closed"
@@ -65,15 +67,15 @@ const Hamburger = () => {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <nav className="text-white text-2xl flex flex-col items-center space-y-8">
-              <a href="#" className="hover:text-blue-400">
-                마음을 보는 마음
-              </a>
-              <a href="#" className="hover:text-blue-400">
-                ABOUT
-              </a>
-              <a href="#" className="hover:text-blue-400">
-                WE WORK
-              </a>
+              {navList.map((nav) => (
+                <Link
+                  key={nav.id}
+                  to={nav.path}
+                  className="hover:text-future-blue-400"
+                >
+                  {nav.name}
+                </Link>
+              ))}
             </nav>
           </motion.div>
         )}
