@@ -17,7 +17,7 @@ const Header = () => {
       ref={ref}
       className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-20 py-[60px]`}
     >
-      <h1>
+      <h1 className="z-20">
         <img
           src="./images/logo.png"
           alt="futuremind 로고"

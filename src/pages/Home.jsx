@@ -1,16 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import ReactPageScroller from "react-page-scroller";
-import { headerH } from "../styles/style";
+import { headerH, hoverTopMotion } from "../styles/style";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
-import { slideCardList } from "../data/reponse";
+import { serviceList, solutionCardList } from "../data/reponse";
+import Card from "../components/layout/Card";
+import MainSection from "../components/layout/MainSection";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
     <>
       <div className="h-full">
-        {/* Main Content */}
+        {/* Hero */}
         <section className="h-full flex items-center justify-center overflow-hidden absolute left-0 right-0 z-0">
           <video
             className="absolute inset-0 w-full h-full object-cover"
@@ -49,32 +52,53 @@ const Home = () => {
             {/* <MdOutlineArrowBackIos size={50} /> */}
           </div>
         </section>
+        {/* // Hero */}
         <div className="relative z-10">
           <ReactPageScroller>
             <div></div>
-            <section
-              className={`h-full px-20 bg-future-gray-800 relative`}
-              style={{ paddingTop: headerH }}
-            >
-              <i className="bg-section-layer absolute inset-0 z-0 opacity-10"></i>
-              <div className="relative z-0 pl-20">
-                <h3 className="text-6xl font-semibold leading-tight">
-                  우리는 <span className="text-future-blue-400">비지니스</span>
-                  의
-                  <br />
-                  <span className="text-future-blue-400">모든 분야</span>를
-                  아우릅니다.
-                </h3>
-                {/* 카드 */}
-                <InfiniteRollingCard cardList={slideCardList} />
+            {/* 두번째 메인 영역 */}
+            <MainSection>
+              <h3 className="text-6xl font-semibold leading-tight">
+                우리는 <span className="text-future-blue-400">비지니스</span>
+                의
+                <br />
+                <span className="text-future-blue-400">모든 분야</span>를
+                아우릅니다.
+              </h3>
+              {/* 무한롤링 영역 */}
+              <div className="pt-16 -mr-20">
+                <InfiniteRollingCard cardList={solutionCardList} />
               </div>
-            </section>
-            <section
-              className={`h-full px-20 bg-purple-700`}
-              style={{ paddingTop: headerH + 40 }}
-            >
-              hh
-            </section>
+              {/* // 무한롤링 영역 */}
+            </MainSection>
+            {/* // 두번째 메인 영역 */}
+            {/* 세번째 메인 영역 */}
+            <MainSection type={"third"}>
+              <div className="relative z-0 flex gap-12">
+                <ul className="flex gap-16">
+                  {serviceList.map((service) => (
+                    <Card key={service.id} data={service} />
+                  ))}
+                </ul>
+                <div>
+                  <button
+                    className={`text-white pl-10 pr-8 py-9 rounded-2xl h-full flex items-end shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(0,0,0,0.1)] bg-[linear-gradient(225deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] ${hoverTopMotion}`}
+                  >
+                    <span
+                      className="flex gap-4 items-end text-3xl font-extrabold text-nowrap transform rotate-180"
+                      style={{ writingMode: "vertical-rl" }}
+                    >
+                      view more
+                      <i className="block w-1 h-11 bg-white ml-2"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div className="-ml-[160px] -mr-20">
+                <Footer />
+              </div>
+            </MainSection>
+            {/* // 세번째 메인 영역 */}
           </ReactPageScroller>
         </div>
       </div>
