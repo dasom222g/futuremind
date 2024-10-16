@@ -15,3 +15,24 @@ export const navList = [
     path: "/",
   },
 ];
+
+export const slideCardList = [
+  {
+    id: 1,
+    category: "development",
+    sub: "기관과 기업을 위한",
+    title: "AI솔루션",
+  },
+  {
+    id: 2,
+    category: "consulting",
+    sub: "예비 / 초기 창업자를 위한",
+    title: "AI컨설팅",
+  },
+  {
+    id: 3,
+    category: "consulting",
+    sub: "예비 / 초기 창업자를 위한",
+    title: "AI컨설팅",
+  },
+];

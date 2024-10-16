@@ -17,6 +17,7 @@ module.exports = {
 
       backgroundImage: {
         "hero-layer": "url('../public/images/hero-layer.png')",
+        "section-layer": "url('../public/images/section-bg-layer.png')",
       },
     },
   },
