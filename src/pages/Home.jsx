@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import ReactPageScroller from "react-page-scroller";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
+import Card from "../components/Card";
 import { serviceList, solutionCardList } from "../data/reponse";
-import Card from "../components/layout/Card";
 import MainSection from "../components/layout/MainSection";
 import Footer from "../components/layout/Footer";
-import InfiniteRollingPartners from "../components/layout/InfiniteRollingPartners";
+import InfiniteRollingPartners from "../components/InfiniteRollingPartners";
 import "aos/dist/aos.css";
 import AOS from "aos";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { partnerList } from "../../data/reponse";
+import { partnerList } from "../data/reponse";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 // import Swiper from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
