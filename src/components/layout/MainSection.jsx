@@ -14,7 +14,7 @@ const MainSection = ({ children, type }) => {
       {type === "third" && (
         <i className="bg-section-vector absolute inset-0 z-0 opacity-20 bg-[position:_-70px_70px] bg-no-repeat"></i>
       )}
-      <div className="relative z-0 pl-20">{children}</div>
+      <div className="relative z-0 pl-20 h-full">{children}</div>
     </section>
   );
 };

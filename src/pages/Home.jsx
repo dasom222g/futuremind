@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import ReactPageScroller from "react-page-scroller";
-import { headerH, hoverTopMotion } from "../styles/style";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
 import { serviceList, solutionCardList } from "../data/reponse";
 import Card from "../components/layout/Card";
 import MainSection from "../components/layout/MainSection";
 import Footer from "../components/Footer";
+import InfiniteRollingPartners from "../components/layout/InfiniteRollingPartners";
 
 const Home = () => {
   return (
@@ -74,26 +74,37 @@ const Home = () => {
             {/* // 두번째 메인 영역 */}
             {/* 세번째 메인 영역 */}
             <MainSection type={"third"}>
-              <div className="relative z-0 flex gap-12">
-                <ul className="flex gap-16">
-                  {serviceList.map((service) => (
-                    <Card key={service.id} data={service} />
-                  ))}
-                </ul>
+              <div className="h-full flex flex-col">
                 <div>
-                  <button className="text-white pl-10 pr-8 py-9 rounded-2xl h-full flex items-end shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(0,0,0,0.1)] bg-[linear-gradient(225deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] hover-top">
-                    <span
-                      className="flex gap-4 items-end text-3xl font-extrabold text-nowrap transform rotate-180"
-                      style={{ writingMode: "vertical-rl" }}
-                    >
-                      view more
-                      <i className="block w-1 h-11 bg-white ml-2"></i>
-                    </span>
-                  </button>
+                  {/* 카드 영역 */}
+                  <div className="relative z-0 flex gap-12">
+                    <ul className="flex gap-16">
+                      {serviceList.map((service) => (
+                        <Card key={service.id} data={service} />
+                      ))}
+                    </ul>
+                    <div>
+                      <button className="text-white pl-10 pr-8 py-9 rounded-2xl h-full flex items-end shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(0,0,0,0.1)] bg-[linear-gradient(225deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] hover-top">
+                        <span
+                          className="flex gap-4 items-end text-3xl font-extrabold text-nowrap transform rotate-180"
+                          style={{ writingMode: "vertical-rl" }}
+                        >
+                          view more
+                          <i className="block w-1 h-11 bg-white ml-2"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  {/* // 카드 영역 */}
+                  {/* partners 영역 */}
+                  <div className="pt-14 pb-2">
+                    <InfiniteRollingPartners />
+                  </div>
+                  {/* // partners 영역 */}
                 </div>
-              </div>
-              <div className="-ml-[160px] -mr-20">
-                <Footer />
+                <div className="-ml-[160px] -mr-20 mt-auto">
+                  <Footer />
+                </div>
               </div>
             </MainSection>
             {/* // 세번째 메인 영역 */}

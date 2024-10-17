@@ -101,3 +101,95 @@ export const serviceList = [
     ],
   },
 ];
+
+export const contactList = [
+  {
+    id: 1,
+    text: "퓨처마인드",
+  },
+  {
+    id: 2,
+    text: "충청남도 천안시 동남구 청수14로 96, 7층 713-A호",
+  },
+  {
+    id: 3,
+    text: "041.575.8729",
+  },
+  {
+    id: 4,
+    text: "master@futuremind.com",
+  },
+  {
+    id: 5,
+    text: "© 2024 futuremind All Rights Reserved.",
+  },
+];
+
+// export const partnerList = [
+//   {
+//     id: 1,
+//     alt: "호서대학교",
+//   },
+//   {
+//     id: 2,
+//     alt: "백석문화대학교",
+//   },
+//   {
+//     id: 3,
+//     alt: "방위사업청",
+//   },
+//   {
+//     id: 4,
+//     alt: "통일부",
+//   },
+// ];
+export const partnerList = [
+  {
+    id: 1,
+    alt: "호서대학교",
+  },
+  {
+    id: 2,
+    alt: "백석문화대학교",
+  },
+  {
+    id: 3,
+    alt: "방위사업청",
+  },
+  {
+    id: 4,
+    alt: "통일부",
+  },
+  {
+    id: 5,
+    alt: "한국콘텐츠진흥원",
+  },
+  {
+    id: 6,
+    alt: "충청남도",
+  },
+  {
+    id: 7,
+    alt: "소상공인시장진흥공단",
+  },
+  {
+    id: 8,
+    alt: "남서울대학교",
+  },
+  {
+    id: 9,
+    alt: "천안시",
+  },
+  {
+    id: 10,
+    alt: "삼성중공업",
+  },
+  {
+    id: 11,
+    alt: "경기도",
+  },
+  {
+    id: 12,
+    alt: "천안문화재단",
+  },
+];
