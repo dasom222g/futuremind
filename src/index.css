@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .hover-top {
+    @apply relative top-0 hover:-top-3  duration-300;
+  }
+}
