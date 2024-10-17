@@ -10,9 +10,12 @@ import Footer from "../components/layout/Footer";
 import InfiniteRollingPartners from "../components/InfiniteRollingPartners";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { isMenuOpenState } from "../data/state";
+import { useSetRecoilState } from "recoil";
 
 const Home = () => {
   // logic
+  const setIsMenuOpen = useSetRecoilState(isMenuOpenState);
 
   const handleAosRefresh = () => {
     const elements = document.querySelectorAll("[data-aos]");
@@ -113,7 +116,10 @@ const Home = () => {
                       ))}
                     </ul>
                     <div>
-                      <button className="text-white pl-10 pr-8 py-9 rounded-2xl h-full flex items-end shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(0,0,0,0.1)] bg-[linear-gradient(225deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] hover-top">
+                      <button
+                        className="text-white pl-10 pr-8 py-9 rounded-2xl h-full flex items-end shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(0,0,0,0.1)] bg-[linear-gradient(225deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] hover-top"
+                        onClick={() => setIsMenuOpen((prev) => !prev)}
+                      >
                         <span
                           className="flex gap-4 items-end text-3xl font-extrabold text-nowrap transform rotate-180"
                           style={{ writingMode: "vertical-rl" }}

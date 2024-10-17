@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navList } from "../../data/reponse";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { isMenuOpenState } from "../../data/state";
 
 const Hamburger = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useRecoilState(isMenuOpenState);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const menuVariants = {
     closed: { y: "-100%" },
@@ -28,7 +30,7 @@ const Hamburger = () => {
               top: "0px",
               left: "0px",
             }}
-            animate={isOpen ? { rotate: 45, y: 16 } : { rotate: 0, y: 0 }}
+            animate={isMenuOpen ? { rotate: 45, y: 16 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3 }}
           />
           <motion.span
@@ -39,7 +41,7 @@ const Hamburger = () => {
               top: "16px",
               left: "0px",
             }}
-            animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+            animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
             transition={{ duration: 0.3 }}
           />
           <motion.span
@@ -50,14 +52,14 @@ const Hamburger = () => {
               top: "32px",
               left: "0px",
             }}
-            animate={isOpen ? { rotate: -45, y: -16 } : { rotate: 0, y: 0 }}
+            animate={isMenuOpen ? { rotate: -45, y: -16 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3 }}
           />
         </div>
       </button>
 
       <AnimatePresence>
-        {isOpen && (
+        {isMenuOpen && (
           <motion.div
             className="fixed inset-0 bg-black z-10 flex items-center justify-center"
             initial="closed"
