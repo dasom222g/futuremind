@@ -1,38 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 import ReactPageScroller from "react-page-scroller";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
 import { serviceList, solutionCardList } from "../data/reponse";
 import Card from "../components/layout/Card";
 import MainSection from "../components/layout/MainSection";
-import Footer from "../components/Footer";
+import Footer from "../components/layout/Footer";
 import InfiniteRollingPartners from "../components/layout/InfiniteRollingPartners";
 import "aos/dist/aos.css";
 import AOS from "aos";
 
 const Home = () => {
   // logic
-  const secondSectionRef = useRef(null);
-  const thirdSectionRef = useRef(null);
 
-  // useEffect(() => {
-  //   if (isInView) {
-  //     // 뷰포트에 진입한 경우
-  //     isInView ? controls.start(option) : controls.stop();
-  //     return;
-  //   }
-  // }, [])
-
-  const handleAosRefresh = (pageIndex) => {
-    console.log("🚀 ~ data:", pageIndex, secondSectionRef, thirdSectionRef);
-    // const currentRef =
-    //   pageIndex === 1
-    //     ? secondSectionRef.current
-    //     : pageIndex === 2
-    //     ? thirdSectionRef.current
-    //     : null;
-    // console.log("refresh");
+  const handleAosRefresh = () => {
     const elements = document.querySelectorAll("[data-aos]");
     elements.forEach((element) => {
       element.classList.add("aos-animate");
@@ -94,10 +76,7 @@ const Home = () => {
             <div></div>
             {/* 두번째 메인 영역 */}
             <MainSection>
-              <h3
-                ref={secondSectionRef}
-                className="text-6xl font-semibold leading-tight"
-              >
+              <h3 className="text-6xl font-semibold leading-tight">
                 <p
                   data-aos="fade-up"
                   data-aos-delay={700}
@@ -124,7 +103,7 @@ const Home = () => {
             {/* // 두번째 메인 영역 */}
             {/* 세번째 메인 영역 */}
             <MainSection type={"third"}>
-              <div ref={thirdSectionRef} className="h-full flex flex-col">
+              <div className="h-full flex flex-col">
                 <div>
                   {/* 카드 영역 */}
                   <div className="relative z-0 flex gap-12">

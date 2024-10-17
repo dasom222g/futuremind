@@ -62,7 +62,6 @@ const InfiniteRollingPartners = () => {
         observeParents={true}
         modules={[Autoplay, Pagination, Navigation]}
         wrapperClass={`swiper-wrapper flex items-center !ease-linear`}
-        wrapper
         className="mySwiper"
       >
         {partnerList.map((partner, index) => (

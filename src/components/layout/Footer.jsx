@@ -1,5 +1,5 @@
 import React from "react";
-import { contactList } from "../data/reponse";
+import { contactList } from "../../data/reponse";
 
 const Footer = () => {
   // logic
