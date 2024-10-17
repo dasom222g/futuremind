@@ -28,7 +28,6 @@ const InfiniteRollingCard = ({ cardList }) => {
     // 사용자가 해당 뷰포트에 도달하며 isInView 업데이트
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log("entry", entry);
         setIsInView(entry.isIntersecting);
       },
       {

@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 import ReactPageScroller from "react-page-scroller";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
@@ -8,8 +8,44 @@ import Card from "../components/layout/Card";
 import MainSection from "../components/layout/MainSection";
 import Footer from "../components/Footer";
 import InfiniteRollingPartners from "../components/layout/InfiniteRollingPartners";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const Home = () => {
+  // logic
+  const secondSectionRef = useRef(null);
+  const thirdSectionRef = useRef(null);
+
+  // useEffect(() => {
+  //   if (isInView) {
+  //     // 뷰포트에 진입한 경우
+  //     isInView ? controls.start(option) : controls.stop();
+  //     return;
+  //   }
+  // }, [])
+
+  const handleAosRefresh = (pageIndex) => {
+    console.log("🚀 ~ data:", pageIndex, secondSectionRef, thirdSectionRef);
+    // const currentRef =
+    //   pageIndex === 1
+    //     ? secondSectionRef.current
+    //     : pageIndex === 2
+    //     ? thirdSectionRef.current
+    //     : null;
+    // console.log("refresh");
+    const elements = document.querySelectorAll("[data-aos]");
+    elements.forEach((element) => {
+      element.classList.add("aos-animate");
+    });
+  };
+
+  useEffect(() => {
+    AOS.init({
+      once: true, // 여러 번 애니메이션을 적용하고 싶을 때는 false로 설정
+    });
+  }, []);
+
+  // view
   return (
     <>
       <div className="h-full">
@@ -31,7 +67,7 @@ const Home = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", duration: 1 }}
+              transition={{ type: "spring", delay: 0.5, duration: 1 }}
               className="text-4xl font-semibold text-future-green-400"
             >
               Connecting dot
@@ -39,7 +75,7 @@ const Home = () => {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", duration: 0.7 }}
+              transition={{ type: "spring", delay: 1, duration: 1 }}
               className="text-4xl md:text-86 font-bold pt-9"
             >
               "AI" 하나로 모든 것을
@@ -54,16 +90,30 @@ const Home = () => {
         </section>
         {/* // Hero */}
         <div className="relative z-10">
-          <ReactPageScroller>
+          <ReactPageScroller onBeforePageScroll={handleAosRefresh}>
             <div></div>
             {/* 두번째 메인 영역 */}
             <MainSection>
-              <h3 className="text-6xl font-semibold leading-tight">
-                우리는 <span className="text-future-blue-400">비지니스</span>
-                의
-                <br />
-                <span className="text-future-blue-400">모든 분야</span>를
-                아우릅니다.
+              <h3
+                ref={secondSectionRef}
+                className="text-6xl font-semibold leading-tight"
+              >
+                <p
+                  data-aos="fade-up"
+                  data-aos-delay={700}
+                  data-aos-duration={1000}
+                >
+                  우리는 <span className="text-future-blue-400">비지니스</span>
+                  의
+                </p>
+                <p
+                  data-aos="fade-up"
+                  data-aos-delay={1700}
+                  data-aos-duration={1000}
+                >
+                  <span className="text-future-blue-400">모든 분야</span>를
+                  아우릅니다.
+                </p>
               </h3>
               {/* 무한롤링 영역 */}
               <div className="pt-16 -mr-20">
@@ -74,7 +124,7 @@ const Home = () => {
             {/* // 두번째 메인 영역 */}
             {/* 세번째 메인 영역 */}
             <MainSection type={"third"}>
-              <div className="h-full flex flex-col">
+              <div ref={thirdSectionRef} className="h-full flex flex-col">
                 <div>
                   {/* 카드 영역 */}
                   <div className="relative z-0 flex gap-12">
