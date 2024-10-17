@@ -81,9 +81,7 @@ const Home = () => {
                   ))}
                 </ul>
                 <div>
-                  <button
-                    className={`text-white pl-10 pr-8 py-9 rounded-2xl h-full flex items-end shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(0,0,0,0.1)] bg-[linear-gradient(225deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] ${hoverTopMotion}`}
-                  >
+                  <button className="text-white pl-10 pr-8 py-9 rounded-2xl h-full flex items-end shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(0,0,0,0.1)] bg-[linear-gradient(225deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] hover-top">
                     <span
                       className="flex gap-4 items-end text-3xl font-extrabold text-nowrap transform rotate-180"
                       style={{ writingMode: "vertical-rl" }}

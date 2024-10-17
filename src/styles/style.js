@@ -3,5 +3,3 @@
 export const minWidth = 1024;
 
 export const headerH = 187;
-
-export const hoverTopMotion = "relative top-0 hover:-top-3  duration-300";
