@@ -12,7 +12,10 @@ const Footer = () => {
       </h2>
       <ul className="flex ml-auto">
         {contactList.map((contact) => (
-          <li key={contact.id} className="flex items-center text-base group">
+          <li
+            key={contact.id}
+            className="flex items-center text-base whitespace-nowrap group"
+          >
             <i className="block w-px h-3 bg-white mx-2 group-first:hidden"></i>
             {contact.text}
           </li>

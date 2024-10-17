@@ -39,7 +39,7 @@ const Home = () => {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", delay: 0.7, duration: 0.7 }}
+              transition={{ type: "spring", duration: 0.7 }}
               className="text-4xl md:text-86 font-bold pt-9"
             >
               "AI" 하나로 모든 것을
@@ -97,7 +97,7 @@ const Home = () => {
                   </div>
                   {/* // 카드 영역 */}
                   {/* partners 영역 */}
-                  <div className="pt-14 pb-2">
+                  <div className="pt-14 pb-2 -mr-20">
                     <InfiniteRollingPartners />
                   </div>
                   {/* // partners 영역 */}
