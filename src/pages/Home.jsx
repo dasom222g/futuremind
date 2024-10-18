@@ -60,11 +60,17 @@ const Home = () => {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", delay: 1, duration: 1 }}
+              transition={{ type: "spring", delay: 1.2, duration: 1 }}
               className="text-4xl md:text-86 font-bold pt-9"
             >
               "AI" 하나로 모든 것을
-              <br />
+            </motion.h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", delay: 2.2, duration: 1 }}
+              className="text-4xl md:text-86 font-bold"
+            >
               연결시킵니다
             </motion.h2>
           </div>
