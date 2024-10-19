@@ -47,7 +47,7 @@ const Home = () => {
             Your browser does not support the video tag.
           </video>
           <i className="absolute inset-0 w-full h-full bg-future-gray-900 opacity-80"></i>
-          <i className="absolute inset-0 w-full h-full bg-hero-layer mix-blend-multiply"></i>
+          <i className="absolute inset-0 w-full h-full bg-hero-layer bg-cover mix-blend-multiply"></i>
           <div className="relative z-10 text-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
