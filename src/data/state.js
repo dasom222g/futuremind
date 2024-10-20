@@ -11,3 +11,8 @@ export const mainSectionNumState = atom({
   key: "mainSectionNumState",
   default: 0,
 });
+
+export const scrollYState = atom({
+  key: "scrollYState",
+  default: 0,
+});

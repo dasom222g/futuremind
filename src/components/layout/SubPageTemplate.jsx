@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
 
@@ -83,14 +83,14 @@ const SubPageTemplate = ({ pageData }) => {
                       {/* START: 메인 설명 */}
                       {info.mainTitle && (
                         <div>
-                          <motion.h3
+                          <motion.div
                             initial={initialAnimate}
                             animate={makeOption(calculateDelay(interval))}
                           >
                             <h3 className="text-lg lg:text-2xl font-bold">
                               {info.mainTitle}
                             </h3>
-                          </motion.h3>
+                          </motion.div>
                           <motion.p
                             className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200"
                             initial={initialAnimate}
@@ -126,9 +126,8 @@ const SubPageTemplate = ({ pageData }) => {
                                   .split("\n")
                                   .filter((text) => text.trim())
                                   .map((text, textIndex) => (
-                                    <>
+                                    <Fragment key={`text-${textIndex}`}>
                                       <motion.div
-                                        key={`text-${textIndex}`}
                                         className={`dasom ${
                                           text.includes("**")
                                             ? "pt-3 lg:pt-6"
@@ -149,7 +148,7 @@ const SubPageTemplate = ({ pageData }) => {
                                           {text.replaceAll("**", "")}
                                         </span>
                                       </motion.div>
-                                    </>
+                                    </Fragment>
                                   ))
                               )}
                             </li>
