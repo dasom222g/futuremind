@@ -33,7 +33,7 @@ const Header = () => {
     controls.start({
       backgroundColor:
         scrollY > 0 ? "rgba(0, 12, 19, 1)" : "rgba(0, 12, 19, 0)",
-      transition: { duration: 0.5, ease: "easeInOut" }, // 부드러운 전환
+      transition: { duration: 0.3, delay: "", ease: "easeInOut" }, // 부드러운 전환
     });
   }, [scrollY, controls]);
 
