@@ -32,12 +32,10 @@ const InfiniteRollingPartners = () => {
     const isSwiper = swiperRef.current && swiperRef.current.swiper;
     if (isSwiper && isInView) {
       // 뷰포트에 진입한 경우
-      console.log("isInView", isInView);
       swiperRef.current.swiper.autoplay.start();
       return;
     }
     // 뷰포트 벗어난경우
-    console.log("isInView", isInView);
     // swiperRef.current.swiper.autoplay.stop();
   }, [isInView]);
 

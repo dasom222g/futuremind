@@ -1,26 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Hamburger from "./Hamberger";
 import { sectionList } from "../../data/response";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { mainSectionNumState } from "../../data/state";
 
 const Header = () => {
   // logic
   const history = useNavigate();
+  const location = useLocation();
 
   const ref = useRef(null);
   const [, setHeight] = useState(0);
-  const setMainSectionNum = useSetRecoilState(mainSectionNumState);
+  const [mainSectionNum, setMainSectionNum] =
+    useRecoilState(mainSectionNumState);
 
-  const hoHome = () => {
+  const handleClick = (index) => {
     history("/");
-    setMainSectionNum(0);
+    setMainSectionNum(index);
   };
 
   useEffect(() => {
     ref.current && setHeight(ref.current.offsetHeight);
   }, []);
+
+  useEffect(() => {
+    console.log("🚀 ~ Header ~ mainSectionNum:", mainSectionNum);
+  }, [mainSectionNum]);
 
   // view
   return (
@@ -29,7 +35,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-8 lg:px-20 lg:py-[60px]`}
     >
       <h1 className="z-20">
-        <button type="button" className="block" onClick={hoHome}>
+        <button type="button" className="block" onClick={() => handleClick(0)}>
           <img
             src="/images/logo.png"
             alt="futuremind 로고"
@@ -39,18 +45,26 @@ const Header = () => {
         </button>
       </h1>
       <ul className="hidden lg:flex w-full justify-around text-2x">
-        {sectionList.map((nav, index) => (
-          <li key={nav.id}>
+        {sectionList.map((section, index) => (
+          <li key={section.id}>
             <button
               type="button"
-              className="relative text-2xl py-3 text-white transition-colors duration-1000 ease-out hover:text-future-blue-400 group"
-              onClick={() => {
-                history("/");
-                setMainSectionNum(index);
-              }}
+              className={`relative text-2xl py-3 transition-colors duration-500 ease-out hover:text-future-blue-400 group ${
+                location.pathname === "/" && mainSectionNum === index
+                  ? "text-future-blue-400"
+                  : "text-white"
+              }`}
+              onClick={() => handleClick(index)}
             >
-              {nav.name}
-              <i className="opacity-0 bg-future-blue-400 group-hover:opacity-100 transition-opacity ease-out duration-1000 h-1 absolute left-0 right-0 bottom-0 "></i>
+              {/* <button
+              type="button"
+              className={`relative text-2xl py-3 transition-colors duration-500 ease-out hover:text-future-blue-400 group`}
+              onClick={() => handleClick(index)}
+            > */}
+              {section.name}
+              <i
+                className={`opacity-0 bg-future-blue-400 group-hover:opacity-100 transition-opacity ease-out duration-1000 h-1 absolute left-0 right-0 bottom-0`}
+              ></i>
             </button>
           </li>
         ))}

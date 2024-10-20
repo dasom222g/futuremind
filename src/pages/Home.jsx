@@ -11,11 +11,13 @@ import InfiniteRollingPartners from "../components/InfiniteRollingPartners";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { isMenuOpenState, mainSectionNumState } from "../data/state";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import MainTitle from "../components/MainTitle";
 
 const Home = () => {
   // logic
-  const sectionNum = useRecoilValue(mainSectionNumState);
+  const [mainSectionNum, setMainSectionNum] =
+    useRecoilState(mainSectionNumState);
 
   const setIsMenuOpen = useSetRecoilState(isMenuOpenState);
 
@@ -26,11 +28,25 @@ const Home = () => {
     });
   };
 
+  const handlePageScroll = (num, type) => {
+    // console.log("handlePageScroll");
+    // if (type === "after") {
+    //   console.log("after");
+    //   setMainSectionNum(num);
+    // }
+    handleAosRefresh();
+  };
+
+  const handleAfterPageScroll = (num) => {
+    console.log("🚀 ~ handleAfterPageScroll ~ num:", num);
+    setMainSectionNum(num);
+  };
+
   useEffect(() => {
     // AOS초기화
     AOS.init({
       once: true, // 여러 번 애니메이션을 적용하고 싶을 때는 false로 설정
-      offset: 100,
+      offset: 1000,
     });
     AOS.refresh(); // 페이지 진입 후 강제로 AOS를 다시 초기화하여 딜레이 반영
   }, []);
@@ -87,31 +103,14 @@ const Home = () => {
         {/* // Hero */}
         <div className="relative z-10">
           <ReactPageScroller
-            customPageNumber={sectionNum}
-            onBeforePageScroll={handleAosRefresh}
-            pageOnChange={handleAosRefresh}
+            customPageNumber={mainSectionNum}
+            onBeforePageScroll={(num) => handlePageScroll(num, "before")}
+            pageOnChange={(num) => handleAfterPageScroll(num, "after")}
           >
             <div></div>
             {/* 두번째 메인 영역 */}
             <MainSection>
-              <h3 className="text-6xl font-semibold leading-tight">
-                <p
-                  data-aos="fade-up"
-                  data-aos-delay={700}
-                  data-aos-duration={1000}
-                >
-                  우리는 <span className="text-future-blue-400">비지니스</span>
-                  의
-                </p>
-                <p
-                  data-aos="fade-up"
-                  data-aos-delay={1700}
-                  data-aos-duration={1000}
-                >
-                  <span className="text-future-blue-400">모든 분야</span>를
-                  아우릅니다.
-                </p>
-              </h3>
+              <MainTitle /> {/* 타이틀 영역 */}
               {/* 무한롤링 영역 */}
               <div className="pt-16 -ml-40 -mr-20">
                 <InfiniteRollingCard cardList={solutionCardList} />
