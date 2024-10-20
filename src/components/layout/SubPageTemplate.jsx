@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Footer from "./Footer";
-import { subPageDataList } from "../../data/reponse";
+import { subPageDataList } from "../../data/response";
 
 const SubPageTemplate = () => {
   // logic

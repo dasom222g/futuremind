@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Hamburger from "./Hamberger";
-import { sectionList } from "../../data/reponse";
+import { sectionList } from "../../data/response";
 import { useSetRecoilState } from "recoil";
 import { mainSectionNumState } from "../../data/state";
 

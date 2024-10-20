@@ -4,7 +4,7 @@ import ReactPageScroller from "react-page-scroller";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
 import Card from "../components/Card";
-import { serviceList, solutionCardList } from "../data/reponse";
+import { serviceList, solutionCardList } from "../data/response";
 import MainSection from "../components/layout/MainSection";
 import Footer from "../components/layout/Footer";
 import InfiniteRollingPartners from "../components/InfiniteRollingPartners";

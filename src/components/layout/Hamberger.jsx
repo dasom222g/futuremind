@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { sectionList } from "../../data/reponse";
+import { sectionList } from "../../data/response";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isMenuOpenState } from "../../data/state";
