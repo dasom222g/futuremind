@@ -1,5 +1,5 @@
 import React from "react";
-import { headerH, minWidth } from "../../styles/style";
+import { headerH } from "../../styles/style";
 
 const MainSection = ({ children, type }) => {
   // logic
@@ -7,8 +7,8 @@ const MainSection = ({ children, type }) => {
   return (
     <div className="h-full overflow-hidden overflow-x-auto">
       <section
-        className={`h-full px-20 bg-future-gray-800 relative`}
-        style={{ paddingTop: headerH, minWidth: minWidth }}
+        className={`h-full px-20 bg-future-gray-800 relative lg:min-w-450`}
+        style={{ paddingTop: headerH }}
       >
         <i className="bg-section-layer absolute inset-0 z-0 opacity-10 bg-no-repeat bg-cover"></i>
         {type === "third" && (

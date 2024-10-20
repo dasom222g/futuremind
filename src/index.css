@@ -7,3 +7,8 @@
     @apply relative top-0 hover:-top-3  duration-300;
   }
 }
+@layer components {
+  .future-sub-item {
+    @apply pt-6 lg:pt-16 mt-6 lg:mt-16 border-t border-white border-opacity-20 first:pt-0 first:mt-0 first:border-t-0;
+  }
+}
