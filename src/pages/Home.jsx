@@ -20,7 +20,6 @@ const Home = () => {
   const setIsMenuOpen = useSetRecoilState(isMenuOpenState);
 
   const handleAosRefresh = () => {
-    console.log("scroll");
     const elements = document.querySelectorAll("[data-aos]");
     elements.forEach((element) => {
       element.classList.add("aos-animate");

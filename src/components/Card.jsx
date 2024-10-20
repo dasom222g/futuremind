@@ -30,7 +30,12 @@ const Card = ({ data }) => {
       </div>
       <ul className="pt-12 flex flex-col gap-9">
         {itemList.map((item, index) => (
-          <li key={`item-${index}`}>
+          <li
+            key={`item-${index}`}
+            data-aos="fade-up"
+            data-aos-delay={delay + duration}
+            data-aos-duration={duration}
+          >
             <h3 className="text-2xl font-semibold">{item.subtitle}</h3>
             <p className="text-xl text-future-gray-200 pt-3 break-keep">
               {item.description}

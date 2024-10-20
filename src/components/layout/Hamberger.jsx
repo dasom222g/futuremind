@@ -21,11 +21,10 @@ const Hamburger = () => {
         className="w-10 h-10 flex items-center justify-center z-20"
         onClick={toggleMenu}
       >
-        <div className="w-10 h-9 relative">
+        <div className="w-9 h-9 relative">
           <motion.span
-            className="absolute bg-white"
+            className="absolute bg-white w-full"
             style={{
-              width: "40px",
               height: "4px",
               top: "0px",
               left: "0px",
@@ -34,9 +33,8 @@ const Hamburger = () => {
             transition={{ duration: 0.3 }}
           />
           <motion.span
-            className="absolute bg-white"
+            className="absolute bg-white w-full"
             style={{
-              width: "40px",
               height: "4px",
               top: "16px",
               left: "0px",
@@ -45,9 +43,8 @@ const Hamburger = () => {
             transition={{ duration: 0.3 }}
           />
           <motion.span
-            className="absolute bg-white"
+            className="absolute bg-white w-full"
             style={{
-              width: "40px",
               height: "4px",
               top: "32px",
               left: "0px",
