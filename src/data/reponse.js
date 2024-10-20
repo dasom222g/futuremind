@@ -269,7 +269,32 @@ export const partnerList = [
   },
 ];
 
-export const subData = [
+export const subPageDataList = [
+  // 플랫폼 개발 페이지
+  {
+    id: "1-1",
+    mainPage: "development-solution",
+    page: "flatform-develope",
+    title: "플랫폼 개발",
+    infoList: [
+      {
+        mainTitle: "플랫폼 개발 및 IT 기업화",
+        mainDescription: "맞춤형 소프트웨어를 통한 생산성 증대",
+        subList: [
+          {
+            title: "기술 서비스",
+            description:
+              "기업 맞춤형 플랫폼을 구축하여 생산성과 효율성을 극대화합니다.",
+          },
+          {
+            title: "통합 관리",
+            description:
+              "모든 데이터를 한곳에서 관리하여, 기업의 의사결정을 지원합니다.",
+          },
+        ],
+      },
+    ],
+  },
   // 스마트 솔루션 페이지
   {
     id: "1-2",
@@ -340,6 +365,184 @@ export const subData = [
             title: "스마트팩토리 운영",
             description:
               "자동화된 생산 라인을 운영하면서, 데이터 분석을 통해 지속적으로 효율성을 개선합니다.",
+          },
+        ],
+      },
+    ],
+  },
+
+  // 창업 마케팅 / 브랜딩 페이지
+  {
+    id: "2-1",
+    mainPage: "startup-consulting",
+    page: "startup-marketing-branding",
+    title: "창업 마케팅 / 브랜딩",
+    infoList: [
+      {
+        mainTitle: "브랜드 전략 및 마케팅",
+        mainDescription:
+          "스타트업의 브랜드 가치를 극대화할 수 있는 전략적 마케팅 서비스",
+        subList: [
+          {
+            title: "브랜드 구축",
+            description:
+              "스타트업의 브랜드 아이덴티티를 구축하고, 시장에서 차별화된 브랜드 가치를 창출합니다.",
+          },
+          {
+            title: "마케팅 전략",
+            description:
+              "효과적인 마케팅 전략을 수립하여, 빠른 성장을 이끌어냅니다.",
+          },
+        ],
+      },
+    ],
+  },
+  // R&D / IP 컨설팅 페이지
+  {
+    id: "2-2",
+    mainPage: "startup-consulting",
+    page: "rd-ip-consulting",
+    title: "R&D / IP 컨설팅",
+    infoList: [
+      {
+        mainTitle: "연구개발 및 지식재산권 컨설팅",
+        mainDescription:
+          "기업의 기술 개발을 위한 R&D 전략과 지식재산권(IP) 관리 컨설팅",
+        subList: [
+          {
+            title: "R&D 전략 수립",
+            description:
+              "연구개발 프로젝트를 성공적으로 수행하기 위한 체계적인 전략을 제시합니다.",
+          },
+          {
+            title: "IP 관리",
+            description:
+              "지식재산권을 보호하고, 사업적 가치를 극대화할 수 있는 방안을 제공합니다.",
+          },
+        ],
+      },
+    ],
+  },
+  // AI 평생교육원 페이지
+  {
+    id: "3-1",
+    mainPage: "education-program",
+    page: "ai-lifelong-education",
+    title: "AI 평생교육원",
+    infoList: [
+      {
+        mainTitle: "AI 기술 교육",
+        mainDescription: "미래 기술에 대비한 평생교육 프로그램 제공",
+        subList: [
+          {
+            title: "AI 기초 교육",
+            description:
+              "인공지능(AI)의 기초 개념을 이해하고, 이를 활용할 수 있는 기초 능력을 배양합니다.",
+          },
+          {
+            title: "AI 응용 교육",
+            description:
+              "실제 산업에서 활용할 수 있는 AI 응용 기술을 학습할 수 있습니다.",
+          },
+        ],
+      },
+    ],
+  },
+  // 충남창업보육협회 페이지
+  {
+    id: "3-2",
+    mainPage: "education-program",
+    page: "chungnam-venture-education",
+    title: "충남창업보육협회",
+    infoList: [
+      {
+        mainTitle: "창업 보육 프로그램",
+        mainDescription: "창업 초기 기업을 위한 다양한 지원 프로그램 제공",
+        subList: [
+          {
+            title: "창업 멘토링",
+            description:
+              "창업 전문가와의 멘토링을 통해 창업 과정에서 직면하는 다양한 문제를 해결할 수 있습니다.",
+          },
+          {
+            title: "자금 지원",
+            description:
+              "초기 자금 조달을 위한 다양한 지원 프로그램을 제공합니다.",
+          },
+        ],
+      },
+    ],
+  },
+  // 어울림 메이커스 페이지
+  {
+    id: "3-3",
+    mainPage: "education-program",
+    page: "ourim-makers",
+    title: "어울림 메이커스",
+    infoList: [
+      {
+        mainTitle: "어울림 메이커스",
+        mainDescription:
+          "어울림 메이커스는 퓨처마인드의 핵심 체험 공간으로, 4차 산업 기술을 활용한 다채로운 체험 활동이 이루어지는 장소입니다. 각종 첨단 기술을 실감할 수 있는 공간에서 재미와 교육을 결합한 특별한 경험을 제공합니다.",
+      },
+      {
+        subList: [
+          {
+            title: "드론 체험",
+            description:
+              "**드론 농장 체험 (스마트팜)**\n스마트팜 기술을 활용한 드론 농장 체험을 통해 농업의 미래를 직접 경험해보세요. 드론을 조종하며 첨단 농업 기술을 익히고, 환경 친화적 농업을 체험할 수 있습니다.\n\n**드론 경주장 (스마트 물류)**\n드론 경주를 통해 물류 혁신의 첨단 기술을 즐겁게 배울 수 있는 기회! 드론 경주장에서 빠르고 정확하게 목표 지점을 통과하는 스마트 물류의 세계를 체험하세요. ",
+          },
+        ],
+      },
+      {
+        subList: [
+          {
+            title: "VR/AR 체험",
+            description:
+              "**AR 서바이벌 (국가보훈)**\n국가보훈을 테마로 한 AR 서바이벌 게임은 기술을 통해 역사와 국가보훈의 중요성을 체감할 수 있는 특별한 체험을 제공합니다. 증강현실 속에서 임무를 완수하며 새로운 교육 경험을 제공합니다.\n\n**AR 방탈출 (안전보건)**\n안전보건을 주제로 한 AR 방탈출 게임에서, 각종 안전문제를 해결하며 탈출을 시도하는 체험 프로그램입니다. 실생활에서 적용 가능한 안전 지식을 배울 수 있는 흥미로운 체험입니다.\n\n**로봇 풋살장 (자율주행)**\n자율주행 로봇과 함께하는 로봇 풋살장에서 즐거운 경기를 경험하세요. 최첨단 기술을 사용한 로봇과의 풋살 경기는 기술 혁신의 재미를 제공합니다. \n\n**현실 마인크래프트 (스마트 팩토리 로봇)**\n현실 세계에서 마인크래프트처럼 로봇을 활용한 스마트 팩토리 체험! 창의적이고 체계적인 문제 해결 능력을 배양하며, 로봇과 함께 미래의 공장 시스템을 이해할 수 있습니다. ",
+          },
+        ],
+      },
+      {
+        subList: [
+          {
+            title: "인플루언서 체험",
+            description:
+              "**AR 포토존 (실감체험)**\nAR 기술을 활용한 포토존에서 실제와 가상 세계가 결합된 특별한 사진을 찍어보세요. 인플루언서들과 함께하며 실감 나는 체험을 통해 특별한 추억을 남길 수 있습니다.\n\n**커플/가족 웨딩 틱톡 챌린지 (여성가족)**\n여성가족 테마로 진행되는 틱톡 챌린지에서 커플과 가족들이 함께 특별한 웨딩 콘텐츠를 만들며 즐거운 시간을 보낼 수 있습니다. AR 기술을 활용한 다양한 이펙트를 통해 유쾌한 경험을 제공합니다.",
+          },
+        ],
+      },
+      {
+        subList: [
+          {
+            title: "인플루언서 체험",
+            description:
+              "**AR 포토존 (실감체험)**\nAR 기술을 활용한 포토존에서 실제와 가상 세계가 결합된 특별한 사진을 찍어보세요.",
+          },
+        ],
+      },
+    ],
+  },
+  // 미래교육문화협회 페이지
+  {
+    id: "3-4",
+    mainPage: "education-program",
+    page: "future-education-culture",
+    title: "미래교육문화협회",
+    infoList: [
+      {
+        mainTitle: "미래 교육",
+        mainDescription: "미래 사회를 대비한 교육 문화 프로그램 운영",
+        subList: [
+          {
+            title: "교육 콘텐츠 개발",
+            description:
+              "미래 사회의 변화에 맞춰 다양한 교육 콘텐츠를 개발하고 제공합니다.",
+          },
+          {
+            title: "교육 협력 네트워크",
+            description:
+              "교육 협력을 위한 네트워크를 구축하여, 글로벌 교육 교류를 촉진합니다.",
           },
         ],
       },
