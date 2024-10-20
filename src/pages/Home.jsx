@@ -11,7 +11,7 @@ import InfiniteRollingPartners from "../components/InfiniteRollingPartners";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { isMenuOpenState, mainSectionNumState } from "../data/state";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import MainTitle from "../components/MainTitle";
 
 const Home = () => {
