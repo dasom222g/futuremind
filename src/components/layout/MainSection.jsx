@@ -10,7 +10,7 @@ const MainSection = ({ children, type }) => {
         className={`h-full px-20 bg-future-gray-800 relative`}
         style={{ paddingTop: headerH, minWidth: minWidth }}
       >
-        <i className="bg-section-layer absolute inset-0 z-0 opacity-10 bg-no-repeat"></i>
+        <i className="bg-section-layer absolute inset-0 z-0 opacity-10 bg-no-repeat bg-cover"></i>
         {type === "third" && (
           <i className="bg-section-vector absolute inset-0 z-0 opacity-20 bg-[position:_-70px_70px] bg-no-repeat"></i>
         )}

@@ -61,7 +61,7 @@ const InfiniteRollingCard = ({ cardList }) => {
   return (
     <div className="overflow-hidden" ref={containerRef}>
       <motion.div
-        className="flex gap-12"
+        className="flex gap-12 pl-40"
         animate={controls}
         style={{ width: `${width * 2}px` }}
       >

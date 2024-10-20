@@ -46,8 +46,7 @@ const InfiniteRollingPartners = () => {
     <>
       <Swiper
         ref={swiperRef}
-        spaceBetween={40}
-        slidesPerView={7}
+        slidesPerView={"auto"}
         speed={3000}
         autoplay={{
           delay: 0,
@@ -61,22 +60,18 @@ const InfiniteRollingPartners = () => {
         observer={true}
         observeParents={true}
         modules={[Autoplay, Pagination, Navigation]}
-        wrapperClass={`swiper-wrapper flex items-center !ease-linear`}
+        wrapperClass={`swiper-wrapper flex items-center !ease-linear pl-40 gap-12`}
         className="mySwiper"
       >
         {partnerList.map((partner, index) => (
-          <SwiperSlide key={`partner-${partner.id}`}>
+          <SwiperSlide key={`partner-${partner.id}`} style={{ width: "auto" }}>
             <img
-              className="w-auto"
+              className="w-auto gap-8"
               src={`./images/partners/${partner.id}.png`}
               alt={partner.alt}
             />
           </SwiperSlide>
         ))}
-        {/* <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide> */}
       </Swiper>
     </>
   );
