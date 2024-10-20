@@ -10,9 +10,3 @@ export const handleAosRefresh = () => {
     element.classList.add("aos-animate");
   });
 };
-
-export const getPageDataItem = (pathname) => {
-  return subPageDataList.find(
-    (data) => data.page === pathname.replace("/", "")
-  );
-};

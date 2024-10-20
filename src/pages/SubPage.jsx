@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 import SubPageTemplate from "../components/layout/SubPageTemplate";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { subPageDataList } from "../data/response";
 
-const OurimMakers = () => {
-  const location = useLocation();
+const SubPage = () => {
+  const { pageName } = useParams();
   const [pageData, setPageData] = useState(null);
 
   useEffect(() => {
-    setPageData(
-      subPageDataList.find(
-        (data) => data.page === location.pathname.replace("/", "")
-      )
+    const currentPageData = subPageDataList.find(
+      (data) => data.page === pageName
     );
-  }, [location.pathname, setPageData]);
+    currentPageData && setPageData(currentPageData);
+  }, [pageName, setPageData]);
 
   return <>{pageData && <SubPageTemplate pageData={pageData} />}</>;
 };
 
-export default OurimMakers;
+export default SubPage;

@@ -11,7 +11,7 @@ const SubPageTemplate = ({ pageData }) => {
         {/* START: Hero영역 */}
         <div className="opacity-20">
           <img
-            src={`./images/sub-${pageData.mainPage}.png`}
+            src={`.././images/sub-${pageData.mainPage}.png`}
             alt={`${pageData.mainPage} 이미지`}
             className={`h-[160px] lg:h-[580px] object-cover`}
           />
@@ -27,7 +27,7 @@ const SubPageTemplate = ({ pageData }) => {
               <div className="flex flex-col gap-4 lg:gap-8">
                 <div className="h-10">
                   <img
-                    src={`./images/icon/sub-${pageData.page}.png`}
+                    src={`.././images/icon/sub-${pageData.page}.png`}
                     alt="아이콘"
                     className="h-full w-auto"
                   />

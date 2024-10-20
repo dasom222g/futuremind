@@ -31,7 +31,7 @@ const Header = () => {
       <h1 className="z-20">
         <button type="button" className="block" onClick={hoHome}>
           <img
-            src="./images/logo.png"
+            src="/images/logo.png"
             alt="futuremind 로고"
             // style={{ height: 67 }}
             className="max-w-none h-12 lg:h-[67px]"

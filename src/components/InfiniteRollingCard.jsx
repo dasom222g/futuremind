@@ -86,7 +86,7 @@ const InfiniteRollingCard = ({ cardList }) => {
                 </div>
                 <div className="mt-[70px]">
                   <img
-                    src={`./images/card-${card.category}.png`}
+                    src={`/images/card-${card.category}.png`}
                     alt={`${card.category} 이미지`}
                   />
                 </div>

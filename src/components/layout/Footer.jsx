@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="bg-opacity-30 text-white py-2 block lg:flex lg:pl-[160px] lg:pr-20">
       <h2>
         <img
-          src="./images/logo-footer.png"
+          src="/images/logo-footer.png"
           alt="로고 이미지"
           className="mx-auto"
         />

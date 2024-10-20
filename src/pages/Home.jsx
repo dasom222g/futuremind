@@ -48,7 +48,7 @@ const Home = () => {
             muted
             playsInline
           >
-            <source src="./images/hero.mp4" type="video/mp4" />
+            <source src="/images/hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <i className="absolute inset-0 w-full h-full bg-future-gray-900 opacity-80"></i>

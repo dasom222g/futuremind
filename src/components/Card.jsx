@@ -23,7 +23,7 @@ const Card = ({ data }) => {
         data-aos-duration={duration}
       >
         <img
-          src={`./images/icon/${icon}.png`}
+          src={`/images/icon/${icon}.png`}
           alt="아이콘 이미지"
           className="w-[46px] h-auto"
         />

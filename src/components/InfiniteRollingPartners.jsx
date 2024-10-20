@@ -67,7 +67,7 @@ const InfiniteRollingPartners = () => {
           <SwiperSlide key={`partner-${partner.id}`} style={{ width: "auto" }}>
             <img
               className="w-auto gap-8"
-              src={`./images/partners/${partner.id}.png`}
+              src={`/images/partners/${partner.id}.png`}
               alt={partner.alt}
             />
           </SwiperSlide>
