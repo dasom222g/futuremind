@@ -1,3 +1,5 @@
+import { subPageDataList } from "../data/response";
+
 export const sleep = (ms) => {
   return new Promise((res) => setTimeout(res, ms));
 };
@@ -7,4 +9,10 @@ export const handleAosRefresh = () => {
   elements.forEach((element) => {
     element.classList.add("aos-animate");
   });
+};
+
+export const getPageDataItem = (pathname) => {
+  return subPageDataList.find(
+    (data) => data.page === pathname.replace("/", "")
+  );
 };
