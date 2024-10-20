@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navList } from "../../data/reponse";
+import { sectionList } from "../../data/reponse";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isMenuOpenState } from "../../data/state";
@@ -66,7 +66,7 @@ const Hamburger = () => {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <nav className="text-white text-2xl flex flex-col items-center space-y-8">
-              {navList.map((nav) => (
+              {sectionList.map((nav) => (
                 <Link
                   key={nav.id}
                   to={nav.path}
