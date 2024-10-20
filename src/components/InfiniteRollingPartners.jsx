@@ -61,8 +61,8 @@ const InfiniteRollingPartners = () => {
         wrapperClass={`swiper-wrapper flex items-center !ease-linear pl-40 gap-12`}
         className="mySwiper"
       >
-        {partnerList.map((partner, index) => (
-          <SwiperSlide key={`partner-${partner.id}`} style={{ width: "auto" }}>
+        {[...partnerList, ...partnerList].map((partner, index) => (
+          <SwiperSlide key={`partner-${index}`} style={{ width: "auto" }}>
             <img
               className="w-auto gap-8"
               src={`/images/partners/${partner.id}.png`}

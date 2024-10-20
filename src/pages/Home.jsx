@@ -29,6 +29,10 @@ const Home = () => {
   };
 
   const handlePageScroll = (num, type) => {
+    if (type === "after") {
+      // console.log("🚀 ~ handlePageScroll ~ num:", num);
+      // console.log("🚀 ~ handlePageScroll ~ mainSectionNum:", mainSectionNum);
+    }
     type === "after" && setMainSectionNum(num);
     handleAosRefresh();
   };
