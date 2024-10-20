@@ -10,14 +10,17 @@ import Footer from "../components/layout/Footer";
 import InfiniteRollingPartners from "../components/InfiniteRollingPartners";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { isMenuOpenState } from "../data/state";
-import { useSetRecoilState } from "recoil";
+import { isMenuOpenState, mainSectionNumState } from "../data/state";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 const Home = () => {
   // logic
+  const sectionNum = useRecoilValue(mainSectionNumState);
+
   const setIsMenuOpen = useSetRecoilState(isMenuOpenState);
 
   const handleAosRefresh = () => {
+    console.log("scroll");
     const elements = document.querySelectorAll("[data-aos]");
     elements.forEach((element) => {
       element.classList.add("aos-animate");
@@ -25,9 +28,12 @@ const Home = () => {
   };
 
   useEffect(() => {
+    // AOS초기화
     AOS.init({
       once: true, // 여러 번 애니메이션을 적용하고 싶을 때는 false로 설정
+      offset: 100,
     });
+    AOS.refresh(); // 페이지 진입 후 강제로 AOS를 다시 초기화하여 딜레이 반영
   }, []);
 
   // view
@@ -81,7 +87,11 @@ const Home = () => {
         </section>
         {/* // Hero */}
         <div className="relative z-10">
-          <ReactPageScroller onBeforePageScroll={handleAosRefresh}>
+          <ReactPageScroller
+            customPageNumber={sectionNum}
+            onBeforePageScroll={handleAosRefresh}
+            pageOnChange={handleAosRefresh}
+          >
             <div></div>
             {/* 두번째 메인 영역 */}
             <MainSection>
@@ -104,7 +114,7 @@ const Home = () => {
                 </p>
               </h3>
               {/* 무한롤링 영역 */}
-              <div className="pt-16 -mr-20">
+              <div className="pt-16 -ml-40 -mr-20">
                 <InfiniteRollingCard cardList={solutionCardList} />
               </div>
               {/* // 무한롤링 영역 */}
@@ -115,10 +125,14 @@ const Home = () => {
               <div className="h-full flex flex-col">
                 <div>
                   {/* 카드 영역 */}
-                  <div className="relative z-0 flex gap-12">
+                  <div className="relative z-0 flex justify-center gap-12">
                     <ul className="flex gap-16">
-                      {serviceList.map((service) => (
-                        <Card key={service.id} data={service} />
+                      {serviceList.map((service, index) => (
+                        <Card
+                          key={service.id}
+                          data={service}
+                          cardIndex={index}
+                        />
                       ))}
                     </ul>
                     <div>
@@ -138,7 +152,7 @@ const Home = () => {
                   </div>
                   {/* // 카드 영역 */}
                   {/* partners 영역 */}
-                  <div className="pt-14 pb-2 -mr-20">
+                  <div className="pt-14 pb-2 -ml-40 -mr-20 gap-">
                     <InfiniteRollingPartners />
                   </div>
                   {/* // partners 영역 */}
