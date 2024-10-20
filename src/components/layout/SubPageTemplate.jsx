@@ -1,8 +1,30 @@
 import React from "react";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
 
 const SubPageTemplate = ({ pageData }) => {
   // logic
+  const interval = 0.5;
+  // 공통 initial 모션값
+  const initialAnimate = { opacity: 0, y: 40 };
+
+  // 애니메이션 옵션 생성
+  const makeOption = (delay) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      duration: 2,
+      delay,
+    },
+  });
+
+  let baseDelay = 0.5; // 기본 지연 시간 설정
+  const calculateDelay = (multiplier = 0) => {
+    const delay = baseDelay;
+    baseDelay += multiplier; // multiplier를 사용하여 지연 시간 누적 계산
+    return delay;
+  };
 
   // view
   return (
@@ -25,75 +47,118 @@ const SubPageTemplate = ({ pageData }) => {
               className={`py-12 lg:py-40 lg:flex lg:gap-32 text-future-${pageData.page}`}
             >
               <div className="flex flex-col gap-4 lg:gap-8">
-                <div className="h-10">
+                <motion.div
+                  className="h-10"
+                  initial={initialAnimate}
+                  animate={makeOption(calculateDelay(interval))}
+                >
                   <img
                     src={`.././images/icon/sub-${pageData.page}.png`}
                     alt="아이콘"
                     className="h-full w-auto"
                   />
-                </div>
-                <h2 className="text-2xl lg:text-4xl font-semibold whitespace-nowrap lg:min-w-64">
+                </motion.div>
+                <motion.h2
+                  className="text-2xl lg:text-4xl font-semibold whitespace-nowrap lg:min-w-64"
+                  initial={initialAnimate}
+                  animate={makeOption(calculateDelay(interval))} // 타이틀 애니메이션 0.5초 후에
+                >
                   {pageData.title}
-                </h2>
+                </motion.h2>
               </div>
               <div className="pt-6 lg:pt-0">
                 {/* START: 설명 콘텐츠 */}
-                {pageData.infoList.map((info, index) => (
-                  <div key={`info-${index}`} className="future-sub-item">
-                    {/* START: 메인 설명 */}
-                    {info.mainTitle && (
-                      <div>
-                        <h3 className="text-lg lg:text-2xl font-bold">
-                          {info.mainTitle}
-                        </h3>
-                        <p className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200">
-                          {info.mainDescription}
-                        </p>
-                      </div>
-                    )}
-                    {/* END: 메인 설명 */}
-                    {info.subList && (
-                      <ul className="text-base lg:text-xl flex flex-col gap-6 lg:gap-12">
-                        {/* START: 서브 한 블록 */}
-                        {info.subList.map((sub, index) => (
-                          <li key={`sub-${index}`}>
-                            <p className="block font-medium">{sub.title}</p>
-                            {/* <span className="block pt-3 lg:pt-6 font-light text-future-gray-200 whitespace-pre-wrap">
-                                {sub.description}
-                              </span> */}
-                            {sub.description.split("\n").length === 1 ? (
-                              <span className="block pt-3 lg:pt-6 font-light text-future-gray-200 whitespace-pre-wrap">
-                                {sub.description}
-                              </span>
-                            ) : (
-                              sub.description
-                                .split("\n")
-                                .filter((text) => text.trim())
-                                .map((text, textIndex) => (
-                                  <div
-                                    key={`text-${textIndex}`}
-                                    className={`dasom ${
-                                      text.includes("**") ? "pt-3 lg:pt-6" : ""
-                                    }`}
-                                  >
-                                    <span
-                                      className={`block text-future-gray-200 whitespace-pre-wrap ${
-                                        text.includes("**")
-                                          ? "font-extrabold"
-                                          : "font-light"
-                                      } `}
-                                    >
-                                      {text.replaceAll("**", "")}
-                                    </span>
-                                  </div>
-                                ))
-                            )}
-                          </li>
-                        ))}
+                {pageData.infoList.map((info, infoLndex) => (
+                  <div key={`info-${infoLndex}`}>
+                    {/* START: 구분선 */}
+                    {infoLndex ? (
+                      <motion.i
+                        className="w-full h-px block bg-white bg-opacity-20 my-6 lg:my-16"
+                        initial={initialAnimate}
+                        animate={makeOption(calculateDelay(interval))}
+                      ></motion.i>
+                    ) : null}
+                    {/* END: 구분선 */}
+                    <div className="flex flex-col gap-4 lg:gap-8">
+                      {/* START: 메인 설명 */}
+                      {info.mainTitle && (
+                        <div>
+                          <motion.h3
+                            initial={initialAnimate}
+                            animate={makeOption(calculateDelay(interval))}
+                          >
+                            <h3 className="text-lg lg:text-2xl font-bold">
+                              {info.mainTitle}
+                            </h3>
+                          </motion.h3>
+                          <motion.p
+                            className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200"
+                            initial={initialAnimate}
+                            animate={makeOption(calculateDelay(interval))}
+                          >
+                            {info.mainDescription}
+                          </motion.p>
+                        </div>
+                      )}
+                      {/* END: 메인 설명 */}
+                      {info.subList && (
+                        <ul className="text-base lg:text-xl flex flex-col gap-6 lg:gap-12">
+                          {/* START: 서브 한 블록 */}
+                          {info.subList.map((sub, index) => (
+                            <li key={`sub-${index}`}>
+                              <motion.p
+                                className="block font-medium"
+                                initial={initialAnimate}
+                                animate={makeOption(calculateDelay(interval))}
+                              >
+                                {sub.title}
+                              </motion.p>
+                              {sub.description.split("\n").length === 1 ? (
+                                <motion.span
+                                  className="block pt-3 lg:pt-6 font-light text-future-gray-200"
+                                  initial={initialAnimate}
+                                  animate={makeOption(calculateDelay(interval))}
+                                >
+                                  {sub.description}
+                                </motion.span>
+                              ) : (
+                                sub.description
+                                  .split("\n")
+                                  .filter((text) => text.trim())
+                                  .map((text, textIndex) => (
+                                    <>
+                                      <motion.div
+                                        key={`text-${textIndex}`}
+                                        className={`dasom ${
+                                          text.includes("**")
+                                            ? "pt-3 lg:pt-6"
+                                            : ""
+                                        }`}
+                                        initial={initialAnimate}
+                                        animate={makeOption(
+                                          calculateDelay(interval)
+                                        )}
+                                      >
+                                        <span
+                                          className={`block text-future-gray-200 ${
+                                            text.includes("**")
+                                              ? "font-extrabold"
+                                              : "font-light"
+                                          } `}
+                                        >
+                                          {text.replaceAll("**", "")}
+                                        </span>
+                                      </motion.div>
+                                    </>
+                                  ))
+                              )}
+                            </li>
+                          ))}
 
-                        {/* END: 서브 한 블록 */}
-                      </ul>
-                    )}
+                          {/* END: 서브 한 블록 */}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 ))}
 
@@ -101,10 +166,8 @@ const SubPageTemplate = ({ pageData }) => {
               </div>
             </div>
             {/* END: Content영역 */}
-            <div className="-mx-1/12 lg:-mx-1/5">
-              <Footer />
-            </div>
           </div>
+          <Footer />
         </div>
       </section>
     </>

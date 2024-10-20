@@ -8,6 +8,7 @@ const MainTitle = () => {
   const controls1 = useAnimation(); // 첫 번째 <p> 컨트롤러
   const controls2 = useAnimation(); // 두 번째 <p> 컨트롤러
 
+  // 공통 initial 모션값
   const initialAnimate = { opacity: 0, y: 40 };
 
   const makeOption = (delay) => {
