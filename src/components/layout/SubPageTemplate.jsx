@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Footer from "./Footer";
-import { subData } from "../../data/reponse";
+import { subPageDataList } from "../../data/reponse";
 
 const SubPageTemplate = () => {
   // logic
@@ -8,7 +8,10 @@ const SubPageTemplate = () => {
   const [smartSolutionData, setSmartSolutionData] = useState(null);
 
   useEffect(() => {
-    setSmartSolutionData(subData[0]);
+    setSmartSolutionData(
+      // subPageDataList.find((sub) => sub.page === "ourim-makers")
+      subPageDataList.find((sub) => sub.page === "smart-solution")
+    );
   }, []);
 
   // view
@@ -49,28 +52,61 @@ const SubPageTemplate = () => {
                   {smartSolutionData.infoList.map((info, index) => (
                     <div key={`info-${index}`} className="future-sub-item">
                       {/* START: 메인 설명 */}
-                      <div>
-                        <h3 className="text-lg lg:text-2xl font-bold">
-                          {info.mainTitle}
-                        </h3>
-                        <p className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200">
-                          {info.mainDescription}
-                        </p>
-                      </div>
+                      {info.mainTitle && (
+                        <div>
+                          <h3 className="text-lg lg:text-2xl font-bold">
+                            {info.mainTitle}
+                          </h3>
+                          <p className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200">
+                            {info.mainDescription}
+                          </p>
+                        </div>
+                      )}
                       {/* END: 메인 설명 */}
-                      <ul className="text-base lg:text-xl flex flex-col gap-6 lg:gap-12 pt-4 lg:pt-8">
-                        {/* START: 서브 한 블록 */}
-                        {info.subList.map((sub, index) => (
-                          <li key={`sub-${index}`}>
-                            <p className="block font-medium">{sub.title}</p>
-                            <span className="block pt-3 lg:pt-6 font-light text-future-gray-200">
-                              {sub.description}
-                            </span>
-                          </li>
-                        ))}
+                      {info.subList && (
+                        <ul className="text-base lg:text-xl flex flex-col gap-6 lg:gap-12">
+                          {/* START: 서브 한 블록 */}
+                          {info.subList.map((sub, index) => (
+                            <li key={`sub-${index}`}>
+                              <p className="block font-medium">{sub.title}</p>
+                              {/* <span className="block pt-3 lg:pt-6 font-light text-future-gray-200 whitespace-pre-wrap">
+                                {sub.description}
+                              </span> */}
+                              {sub.description.split("\n").length === 1 ? (
+                                <span className="block pt-3 lg:pt-6 font-light text-future-gray-200 whitespace-pre-wrap">
+                                  {sub.description}
+                                </span>
+                              ) : (
+                                sub.description
+                                  .split("\n")
+                                  .filter((text) => text.trim())
+                                  .map((text, textIndex) => (
+                                    <div
+                                      key={`text-${textIndex}`}
+                                      className={`dasom ${
+                                        text.includes("**")
+                                          ? "pt-3 lg:pt-6"
+                                          : ""
+                                      }`}
+                                    >
+                                      <span
+                                        className={`block text-future-gray-200 whitespace-pre-wrap ${
+                                          text.includes("**")
+                                            ? "font-extrabold"
+                                            : "font-light"
+                                        } `}
+                                      >
+                                        {text.replaceAll("**", "")}
+                                      </span>
+                                    </div>
+                                  ))
+                              )}
+                            </li>
+                          ))}
 
-                        {/* END: 서브 한 블록 */}
-                      </ul>
+                          {/* END: 서브 한 블록 */}
+                        </ul>
+                      )}
                     </div>
                   ))}
 
