@@ -29,17 +29,8 @@ const Home = () => {
   };
 
   const handlePageScroll = (num, type) => {
-    // console.log("handlePageScroll");
-    // if (type === "after") {
-    //   console.log("after");
-    //   setMainSectionNum(num);
-    // }
+    type === "after" && setMainSectionNum(num);
     handleAosRefresh();
-  };
-
-  const handleAfterPageScroll = (num) => {
-    console.log("🚀 ~ handleAfterPageScroll ~ num:", num);
-    setMainSectionNum(num);
   };
 
   useEffect(() => {
@@ -105,7 +96,7 @@ const Home = () => {
           <ReactPageScroller
             customPageNumber={mainSectionNum}
             onBeforePageScroll={(num) => handlePageScroll(num, "before")}
-            pageOnChange={(num) => handleAfterPageScroll(num, "after")}
+            pageOnChange={(num) => handlePageScroll(num, "after")}
           >
             <div></div>
             {/* 두번째 메인 영역 */}
