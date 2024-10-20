@@ -2,6 +2,8 @@ import React from "react";
 
 const Card = ({ data }) => {
   // logic
+  const delay = 700;
+  const duration = 1000;
   const { title, titleColor, icon, itemList } = data;
   // view
   return (
@@ -9,16 +11,16 @@ const Card = ({ data }) => {
       <h2
         className={`text-44 font-semibold whitespace-pre-wrap text-${titleColor}`}
         data-aos="fade-up"
-        data-aos-delay={700}
-        data-aos-duration={1000}
+        data-aos-delay={delay}
+        data-aos-duration={duration}
       >
         {title}
       </h2>
       <div
         className="absolute top-7 right-7"
         data-aos="fade-up"
-        data-aos-delay={2700}
-        data-aos-duration={1000}
+        data-aos-delay={delay}
+        data-aos-duration={duration}
       >
         <img
           src={`./images/icon/${icon}.png`}
@@ -28,12 +30,7 @@ const Card = ({ data }) => {
       </div>
       <ul className="pt-12 flex flex-col gap-9">
         {itemList.map((item, index) => (
-          <li
-            key={`item-${index}`}
-            data-aos="fade-up"
-            data-aos-delay={1700}
-            data-aos-duration={1000}
-          >
+          <li key={`item-${index}`}>
             <h3 className="text-2xl font-semibold">{item.subtitle}</h3>
             <p className="text-xl text-future-gray-200 pt-3 break-keep">
               {item.description}
