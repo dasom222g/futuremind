@@ -98,16 +98,53 @@ const SubPageTemplate = ({ pageData }) => {
                               {info.mainTitle}
                             </h3>
                           </motion.div>
-                          <motion.p
-                            key={`mainDescription-${
-                              pageData.id
-                            }-${infoIndex}-${new Date().getTime()}`}
-                            className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200"
-                            initial={initialAnimate}
-                            animate={makeOption(calculateDelay(interval))}
-                          >
-                            {info.mainDescription}
-                          </motion.p>
+                          <div className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200">
+                            {info.mainDescription.split("\n").length === 1 ? (
+                              <motion.p
+                                key={`mainDescription-${
+                                  pageData.id
+                                }-${infoIndex}-${new Date().getTime()}`}
+                                initial={initialAnimate}
+                                animate={makeOption(calculateDelay(interval))}
+                              >
+                                {info.mainDescription}
+                              </motion.p>
+                            ) : (
+                              info.mainDescription
+                                .split("\n")
+                                .filter((text) => text.trim())
+                                .map((text, textIndex) => (
+                                  <Fragment
+                                    key={`text-${pageData.id}-${infoIndex}-${textIndex}`}
+                                  >
+                                    <motion.div
+                                      key={`textFragment-${
+                                        pageData.id
+                                      }-${infoIndex}-${textIndex}-${new Date().getTime()}`}
+                                      className={`dasom ${
+                                        text.includes("**")
+                                          ? "pt-3 lg:pt-6"
+                                          : ""
+                                      }`}
+                                      initial={initialAnimate}
+                                      animate={makeOption(
+                                        calculateDelay(interval)
+                                      )}
+                                    >
+                                      <span
+                                        className={`block text-future-gray-200 ${
+                                          text.includes("**")
+                                            ? "font-extrabold"
+                                            : "font-light"
+                                        } `}
+                                      >
+                                        {text.replaceAll("**", "")}
+                                      </span>
+                                    </motion.div>
+                                  </Fragment>
+                                ))
+                            )}
+                          </div>
                         </div>
                       )}
                       {/* END: 메인 설명 */}
