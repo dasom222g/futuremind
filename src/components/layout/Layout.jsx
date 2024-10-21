@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
     return () => {
       current && current.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [setScrollY]);
 
   return (
     <div

@@ -4,7 +4,6 @@ import { navList } from "../../data/response";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isMenuOpenState } from "../../data/state";
-import { FaMinus, FaPlus } from "react-icons/fa";
 
 const Hamburger = () => {
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(isMenuOpenState);
