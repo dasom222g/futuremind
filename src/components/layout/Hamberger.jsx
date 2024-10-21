@@ -80,7 +80,7 @@ const Hamburger = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-future-gray-700 z-10 flex items-start justify-start p-10 pr-24 overflow-y-auto"
+            className="fixed inset-0 bg-future-gray-700 z-10 flex items-start justify-start px-10 py-20 lg:px-20 lg:py-36 overflow-y-auto"
             initial="closed"
             animate="open"
             exit="closed"
@@ -120,7 +120,7 @@ const Hamburger = () => {
                   </button>
                   {/* END: 대메뉴 */}
                   <motion.ul
-                    className="pl-4 overflow-hidden flex flex-col gap-3 lg:gap-6"
+                    className="pl-1 overflow-hidden flex flex-col gap-3 lg:gap-6"
                     initial="closed"
                     animate={
                       openMenuIdList.includes(nav.id) ? "open" : "closed"
@@ -132,7 +132,7 @@ const Hamburger = () => {
                     {nav.children.map((child) => (
                       <li
                         key={child.id}
-                        className="first-of-type:pt-10 lg:first-of-type:pt-10 last-of-type:pb-10 lg:last-of-type:pb-10"
+                        className="first-of-type:pt-4 lg:first-of-type:pt-10 last-of-type:pb-4 lg:last-of-type:pb-10"
                       >
                         <Link
                           to={`/sub${child.path}`}
