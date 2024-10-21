@@ -200,24 +200,6 @@ export const contactList = [
   },
 ];
 
-// export const partnerList = [
-//   {
-//     id: 1,
-//     alt: "호서대학교",
-//   },
-//   {
-//     id: 2,
-//     alt: "백석문화대학교",
-//   },
-//   {
-//     id: 3,
-//     alt: "방위사업청",
-//   },
-//   {
-//     id: 4,
-//     alt: "통일부",
-//   },
-// ];
 export const partnerList = [
   {
     id: 1,
@@ -269,7 +251,7 @@ export const partnerList = [
   },
 ];
 
-export const subPageDataList = [
+export const subPageContentList = [
   // 플랫폼 개발 페이지
   {
     id: "1-1",
