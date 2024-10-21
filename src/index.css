@@ -7,3 +7,8 @@
     @apply relative top-0 hover:-top-3  duration-300;
   }
 }
+@layer components {
+  .menu-interval {
+    @apply flex flex-col gap-5 lg:gap-10;
+  }
+}

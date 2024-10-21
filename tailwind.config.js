@@ -14,6 +14,7 @@ module.exports = {
         "future-gray-700": "#000c13", // sub bg
         "future-gray-800": "#020914",
         "future-gray-900": "#0d0f12",
+        "future-gray-300": "#a4a4a4", // 서브메뉴 텍스트
         "future-gray-200": "#857e9a",
         "future-gray-100": "#cccfd0",
         "future-blue-400": "#00deff",
@@ -30,19 +31,15 @@ module.exports = {
         "future-ourim-makers": "#15c049", // 어울림 메이커스
         "future-future-education-culture": "#fff", // 미래교육문화협회
       },
+      width: {
+        7.5: "1.875rem",
+      },
+      height: {
+        7.5: "1.875rem",
+      },
       fontSize: {
         86: ["5.375rem", { lineHeight: "1.2" }], // 86px을 rem으로 변환
         44: ["2.75rem", { lineHeight: "1.2" }], // 44px을 rem으로 변환
-      },
-
-      backgroundImage: {
-        "hero-layer": "url('../public/images/hero-layer.png')",
-        "section-layer": "url('../public/images/section-bg-layer.png')",
-        "section-vector": "url('../public/images/section3-bg-vector.png')",
-        "gradient-bar": "url('../public/images/gradient-bar.png')",
-      },
-      writingMode: {
-        "vertical-rl": "vertical-rl",
       },
       padding: {
         "1/2": "50%",
@@ -104,6 +101,15 @@ module.exports = {
       },
       minWidth: {
         450: "112.5rem", // 1800px
+      },
+      backgroundImage: {
+        "hero-layer": "url('../public/images/hero-layer.png')",
+        "section-layer": "url('../public/images/section-bg-layer.png')",
+        "section-vector": "url('../public/images/section3-bg-vector.png')",
+        "gradient-bar": "url('../public/images/gradient-bar.png')",
+      },
+      writingMode: {
+        "vertical-rl": "vertical-rl",
       },
     },
   },

@@ -1,25 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { sectionList } from "../../data/response";
+import { navList } from "../../data/response";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isMenuOpenState } from "../../data/state";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 const Hamburger = () => {
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(isMenuOpenState);
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  // 현재 열려 있는 메뉴의 Id배열
+  const [openMenuIdList, setOpenMenuIdList] = useState([]);
+
+  const accordionVariants = {
+    open: { height: "auto", opacity: 1 },
+    closed: { height: 0, opacity: 0 },
+  };
+
+  const handleToggleHambergerMenu = () => setIsMenuOpen((prev) => !prev);
+
+  const handleToggleSubMenu = (selectedId) => {
+    const isAlreadyOpen = openMenuIdList.includes(selectedId);
+    setOpenMenuIdList((prev) =>
+      isAlreadyOpen
+        ? prev.filter((openedMenuId) => openedMenuId !== selectedId)
+        : [...prev, selectedId]
+    );
+  };
 
   const menuVariants = {
-    closed: { y: "-100%" },
     open: { y: "0%" },
+    closed: { y: "-100%" },
+  };
+
+  const rotateVariants = {
+    open: { rotate: 90 },
+    closed: { rotate: 0 },
   };
 
   return (
     <>
       <button
         className="w-10 h-10 flex items-center justify-center z-20"
-        onClick={toggleMenu}
+        onClick={handleToggleHambergerMenu}
       >
         <div className="w-9 h-9 relative">
           <motion.span
@@ -58,22 +81,72 @@ const Hamburger = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-black z-10 flex items-center justify-center"
+            className="fixed inset-0 bg-future-gray-700 z-10 flex items-start justify-start p-10 pr-24 overflow-y-auto"
             initial="closed"
             animate="open"
             exit="closed"
             variants={menuVariants}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <nav className="text-white text-2xl flex flex-col items-center space-y-8">
-              {sectionList.map((nav) => (
-                <Link
-                  key={nav.id}
-                  to={nav.path}
-                  className="hover:text-future-blue-400"
-                >
-                  {nav.name}
-                </Link>
+            <nav className="w-full text-white text-2xl menu-interval">
+              {navList.map((nav, index) => (
+                <div key={`nav-${nav.id}`}>
+                  {/* START: 대메뉴 */}
+                  <button
+                    className="flex items-center text-left font-semibold text-2xl lg:text-4xl gap-4 lg:gap-7"
+                    onClick={() => handleToggleSubMenu(nav.id)}
+                  >
+                    {nav.title}
+                    {/* 아이콘 */}
+                    <motion.span
+                      animate={
+                        openMenuIdList.includes(nav.id) ? "open" : "closed"
+                      }
+                      variants={rotateVariants}
+                      transition={{ duration: 0.5 }}
+                      className="inline-block w-4 h-4 lg:w-7.5 lg:h-7.5 relative"
+                    >
+                      <motion.span
+                        animate={
+                          openMenuIdList.includes(nav.id)
+                            ? { opacity: 0 }
+                            : { opacity: 1 }
+                        }
+                        transition={{ duration: 0.5 }}
+                        className="block bg-white absolute inset-0 w-full h-[2px] lg:h-1 top-1/2 -translate-y-1/2"
+                      />
+                      <motion.span className="block bg-white absolute inset-0 h-[2px] lg:h-1 top-1/2 -translate-y-1/2 rotate-90" />
+                    </motion.span>
+                    {/* // 아이콘 */}
+                  </button>
+                  {/* END: 대메뉴 */}
+                  <motion.ul
+                    className="pl-4 overflow-hidden flex flex-col gap-3 lg:gap-6"
+                    initial="closed"
+                    animate={
+                      openMenuIdList.includes(nav.id) ? "open" : "closed"
+                    }
+                    variants={accordionVariants}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {/* START: 소메뉴 */}
+                    {nav.children.map((child) => (
+                      <li
+                        key={child.id}
+                        className="first-of-type:pt-10 lg:first-of-type:pt-10 last-of-type:pb-10 lg:last-of-type:pb-10"
+                      >
+                        <Link
+                          to={`/sub${child.path}`}
+                          className="text-base lg:text-xl font-medium text-future-gray-300 hover:text-white"
+                          onClick={handleToggleHambergerMenu}
+                        >
+                          {child.title}
+                        </Link>
+                      </li>
+                    ))}
+                    {/* END: 소메뉴 */}
+                  </motion.ul>
+                </div>
               ))}
             </nav>
           </motion.div>

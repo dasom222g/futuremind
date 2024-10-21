@@ -45,7 +45,7 @@ const Header = () => {
         animate={controls}
         className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-8 lg:px-20 lg:py-[60px]`}
       >
-        <h1 className="z-20">
+        <h1>
           <button
             type="button"
             className="block"

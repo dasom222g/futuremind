@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 const SubPageTemplate = ({ pageData }) => {
   // logic
   const interval = 0.5;
-  // 공통 initial 모션값
-  const initialAnimate = { opacity: 0, y: 40 };
+  const initialAnimate = { opacity: 0, y: 40 }; // 공통 initial 모션값
 
   // 애니메이션 옵션 생성
   const makeOption = (delay) => ({
@@ -35,7 +34,7 @@ const SubPageTemplate = ({ pageData }) => {
           <img
             src={`.././images/sub-${pageData.mainPage}.png`}
             alt={`${pageData.mainPage} 이미지`}
-            className={`h-[160px] lg:h-[580px] object-cover`}
+            className={`h-[160px] lg:h-[580px] w-full object-cover`}
           />
         </div>
         <i className="block w-full h-1 bg-gradient-bar bg-no-repeat bg-cover"></i>
@@ -48,6 +47,7 @@ const SubPageTemplate = ({ pageData }) => {
             >
               <div className="flex flex-col gap-4 lg:gap-8">
                 <motion.div
+                  key={`icon-${pageData.id}-${new Date().getTime()}`}
                   className="h-10"
                   initial={initialAnimate}
                   animate={makeOption(calculateDelay(interval))}
@@ -59,6 +59,7 @@ const SubPageTemplate = ({ pageData }) => {
                   />
                 </motion.div>
                 <motion.h2
+                  key={`title-${pageData.id}-${new Date().getTime()}`}
                   className="text-2xl lg:text-4xl font-semibold whitespace-nowrap lg:min-w-64"
                   initial={initialAnimate}
                   animate={makeOption(calculateDelay(interval))} // 타이틀 애니메이션 0.5초 후에
@@ -68,11 +69,14 @@ const SubPageTemplate = ({ pageData }) => {
               </div>
               <div className="pt-6 lg:pt-0">
                 {/* START: 설명 콘텐츠 */}
-                {pageData.infoList.map((info, infoLndex) => (
-                  <div key={`info-${infoLndex}`}>
+                {pageData.infoList.map((info, infoIndex) => (
+                  <div key={`info-${pageData.id}-${infoIndex}`}>
                     {/* START: 구분선 */}
-                    {infoLndex ? (
+                    {infoIndex ? (
                       <motion.i
+                        key={`divider-${
+                          pageData.id
+                        }-${infoIndex}-${new Date().getTime()}`}
                         className="w-full h-px block bg-white bg-opacity-20 my-6 lg:my-16"
                         initial={initialAnimate}
                         animate={makeOption(calculateDelay(interval))}
@@ -84,6 +88,9 @@ const SubPageTemplate = ({ pageData }) => {
                       {info.mainTitle && (
                         <div>
                           <motion.div
+                            key={`mainTitle-${
+                              pageData.id
+                            }-${infoIndex}-${new Date().getTime()}`}
                             initial={initialAnimate}
                             animate={makeOption(calculateDelay(interval))}
                           >
@@ -92,6 +99,9 @@ const SubPageTemplate = ({ pageData }) => {
                             </h3>
                           </motion.div>
                           <motion.p
+                            key={`mainDescription-${
+                              pageData.id
+                            }-${infoIndex}-${new Date().getTime()}`}
                             className="text-base lg:text-xl pt-6 lg:pt-12 font-light text-future-gray-200"
                             initial={initialAnimate}
                             animate={makeOption(calculateDelay(interval))}
@@ -104,9 +114,14 @@ const SubPageTemplate = ({ pageData }) => {
                       {info.subList && (
                         <ul className="text-base lg:text-xl flex flex-col gap-6 lg:gap-12">
                           {/* START: 서브 한 블록 */}
-                          {info.subList.map((sub, index) => (
-                            <li key={`sub-${index}`}>
+                          {info.subList.map((sub, subIndex) => (
+                            <li
+                              key={`sub-${pageData.id}-${infoIndex}-${subIndex}`}
+                            >
                               <motion.p
+                                key={`subTitle-${
+                                  pageData.id
+                                }-${infoIndex}-${subIndex}-${new Date().getTime()}`}
                                 className="block font-medium"
                                 initial={initialAnimate}
                                 animate={makeOption(calculateDelay(interval))}
@@ -115,6 +130,9 @@ const SubPageTemplate = ({ pageData }) => {
                               </motion.p>
                               {sub.description.split("\n").length === 1 ? (
                                 <motion.span
+                                  key={`subDescription-${
+                                    pageData.id
+                                  }-${infoIndex}-${subIndex}-${new Date().getTime()}`}
                                   className="block pt-3 lg:pt-6 font-light text-future-gray-200"
                                   initial={initialAnimate}
                                   animate={makeOption(calculateDelay(interval))}
@@ -126,8 +144,13 @@ const SubPageTemplate = ({ pageData }) => {
                                   .split("\n")
                                   .filter((text) => text.trim())
                                   .map((text, textIndex) => (
-                                    <Fragment key={`text-${textIndex}`}>
+                                    <Fragment
+                                      key={`text-${pageData.id}-${infoIndex}-${subIndex}-${textIndex}`}
+                                    >
                                       <motion.div
+                                        key={`textFragment-${
+                                          pageData.id
+                                        }-${infoIndex}-${subIndex}-${textIndex}-${new Date().getTime()}`}
                                         className={`dasom ${
                                           text.includes("**")
                                             ? "pt-3 lg:pt-6"
