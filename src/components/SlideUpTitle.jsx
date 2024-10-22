@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-const MainTitle = () => {
+const SlideUpTitle = () => {
   // logic
   const ref = useRef(null);
   const [isInView, setIsInView] = useState(false);
@@ -67,4 +67,4 @@ const MainTitle = () => {
   );
 };
 
-export default MainTitle;
+export default SlideUpTitle;
