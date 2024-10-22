@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Hamburger from "./Hamberger";
 import { sectionList } from "../../data/response";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { mainSectionNumState, scrollYState } from "../../data/state";
 import { motion, useAnimation } from "framer-motion";
+import Hamburger from "./Hamburger";
 
 const Header = () => {
   // logic
