@@ -12,7 +12,7 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import { isMenuOpenState, mainSectionNumState } from "../data/state";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import SlideUpTitle from "../components/SlideUpTitle";
+import FadeInTitle from "../components/FadeInTitle";
 
 const Home = () => {
   // logic
@@ -105,7 +105,7 @@ const Home = () => {
             <div></div>
             {/* 두번째 메인 영역 */}
             <MainSection>
-              <SlideUpTitle /> {/* 타이틀 영역 */}
+              <FadeInTitle /> {/* 타이틀 영역 */}
               {/* 무한롤링 영역 */}
               <div className="pt-16 -ml-40 -mr-20">
                 <InfiniteRollingCard cardList={solutionCardList} />
