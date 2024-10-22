@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
 import ReactPageScroller from "react-page-scroller";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
