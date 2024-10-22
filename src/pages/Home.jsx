@@ -4,7 +4,7 @@ import ReactPageScroller from "react-page-scroller";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import InfiniteRollingCard from "../components/InfiniteRollingCard";
 import Card from "../components/Card";
-import { serviceList, solutionCardList } from "../data/response";
+import { mainTitleList, serviceList, solutionCardList } from "../data/response";
 import MainSection from "../components/layout/MainSection";
 import Footer from "../components/layout/Footer";
 import InfiniteRollingPartners from "../components/InfiniteRollingPartners";
@@ -13,6 +13,7 @@ import AOS from "aos";
 import { isMenuOpenState, mainSectionNumState } from "../data/state";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import FadeInTitle from "../components/FadeInTitle";
+import InfiniteFadeInTitle from "../components/InfiniteFadeInTitle";
 
 const Home = () => {
   // logic
@@ -64,32 +65,7 @@ const Home = () => {
           </video>
           <i className="absolute inset-0 w-full h-full bg-future-gray-900 opacity-80"></i>
           <i className="absolute inset-0 w-full h-full bg-hero-layer bg-cover mix-blend-multiply"></i>
-          <div className="relative z-10 text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", delay: 0.5, duration: 1 }}
-              className="text-4xl font-semibold text-future-green-400"
-            >
-              Connecting dot
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", delay: 1.2, duration: 1 }}
-              className="text-4xl md:text-86 font-bold pt-9"
-            >
-              "AI" 하나로 모든 것을
-            </motion.h2>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", delay: 2.2, duration: 1 }}
-              className="text-4xl md:text-86 font-bold"
-            >
-              연결시킵니다
-            </motion.h2>
-          </div>
+          <InfiniteFadeInTitle textData={mainTitleList} />
           <div className="animate-bounce absolute bottom-12 text-future-gray-100">
             <MdKeyboardArrowDown size={50} />
             {/* <MdOutlineArrowBackIos size={50} /> */}

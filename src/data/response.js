@@ -251,6 +251,39 @@ export const partnerList = [
   },
 ];
 
+export const mainTitleList = [
+  {
+    subTitle: {
+      text: "Connecting dot",
+      color: "text-future-green-400",
+    },
+    title1: {
+      text: '"AI" 하나로 모든 것을',
+      color: "text-white",
+    },
+    title2: {
+      text: "연결시킵니다",
+      color: "text-white",
+    },
+  },
+  {
+    subTitle: {
+      text: "Connecting future",
+      color: "text-future-purple-600",
+    },
+    title1: {
+      text: "미래를 보는 마음",
+      color: "text-white",
+    },
+    title2: {
+      text: "퓨처마인드",
+      color: "text-white",
+    },
+  },
+];
+
+// sub
+
 export const subPageContentList = [
   // 플랫폼 개발 페이지
   {

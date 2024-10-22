@@ -18,6 +18,7 @@ module.exports = {
         "future-gray-200": "#857e9a",
         "future-gray-100": "#cccfd0",
         "future-blue-400": "#00deff",
+        "future-purple-600": "#b82fff",
         "future-green-400": "#33fda8",
         "future-green-500": "#00ffba", // 메인 설명 카드
         "future-orange-400": "#ff6d28",
