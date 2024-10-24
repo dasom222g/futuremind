@@ -7,7 +7,7 @@ const Card = ({ data }) => {
   const { title, titleColor, icon, itemList } = data;
   // view
   return (
-    <li className="w-full rounded-3xl px-12 pt-16 pb-11 max-h-[605px] overflow-y-auto shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(255,255,255,0.1)] bg-[linear-gradient(135deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] hover-top">
+    <li className="w-full rounded-3xl px-12 pt-16 pb-11 max-h-[606px] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.1),inset_-2px_-2px_3px_rgba(255,255,255,0.1)] bg-[linear-gradient(135deg,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0.5)_100%)] hover-top">
       <h2
         className={`text-44 font-semibold whitespace-pre-wrap text-${titleColor}`}
         data-aos="fade-up"
