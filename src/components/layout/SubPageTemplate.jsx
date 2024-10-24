@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const SubPageTemplate = ({ pageData }) => {
   // logic
-  const interval = 0.5;
+  const interval = 0.2;
   const initialAnimate = { opacity: 0, y: 40 }; // 공통 initial 모션값
 
   // 애니메이션 옵션 생성

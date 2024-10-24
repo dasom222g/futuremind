@@ -6,7 +6,7 @@ const Footer = () => {
 
   // view
   return (
-    <footer className="bg-opacity-30 text-white py-2 block lg:flex lg:pl-[160px] lg:pr-20">
+    <footer className="bg-black bg-opacity-30 text-white py-2 block lg:flex lg:pl-[160px] lg:pr-20">
       <h2>
         <img
           src="/images/logo-footer.png"
