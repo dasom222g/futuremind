@@ -42,7 +42,7 @@ const FadeInTitle = () => {
   }, []);
 
   useEffect(() => {
-    console.log("isInView", isInView);
+    // console.log("isInView", isInView);
     if (isInView) {
       // 뷰포트에 진입한 경우
       controls1.start(makeOption(0.5));
