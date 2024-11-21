@@ -4,7 +4,7 @@ const MainSolutionItem = ({ cardList }) => {
   return (
     <div>
       {cardList.map((card) => (
-        <div className="py-3">
+        <div key={card.id} className="py-3">
           <p className="text-lg pb-4">
             {card.sub}
             <span className="text-future-blue-400">{card.title}</span>
