@@ -43,7 +43,7 @@ const Header = () => {
       <motion.header
         ref={ref}
         animate={controls}
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-8 lg:px-20 lg:py-[60px]`}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-8 lg:px-20 lg:py-[60px] lg:max-w-[768px] lg:mx-auto`}
       >
         <h1>
           <button
@@ -55,6 +55,28 @@ const Header = () => {
               src="/images/logo.png"
               alt="futuremind 로고"
               // style={{ height: 67 }}
+              className="max-w-none h-12 lg:h-[67px]"
+            />
+          </button>
+        </h1>
+
+        <Hamburger />
+      </motion.header>
+      {/* 반응형 버전 */}
+      {/* <motion.header
+        ref={ref}
+        animate={controls}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-8 lg:px-20 lg:py-[60px]`}
+      >
+        <h1>
+          <button
+            type="button"
+            className="block"
+            onClick={() => handleClick(0)}
+          >
+            <img
+              src="/images/logo.png"
+              alt="futuremind 로고"
               className="max-w-none h-12 lg:h-[67px]"
             />
           </button>
@@ -71,11 +93,6 @@ const Header = () => {
                 }`}
                 onClick={() => handleClick(index)}
               >
-                {/* <button
-                type="button"
-                className={`relative text-2xl py-3 transition-colors duration-500 ease-out hover:text-future-blue-400 group`}
-                onClick={() => handleClick(index)}
-              > */}
                 {section.name}
                 <i
                   className={`opacity-0 bg-future-blue-400 group-hover:opacity-100 transition-opacity ease-out duration-1000 h-1 absolute left-0 right-0 bottom-0`}
@@ -85,7 +102,7 @@ const Header = () => {
           ))}
         </ul>
         <Hamburger />
-      </motion.header>
+      </motion.header> */}
     </>
   );
 };

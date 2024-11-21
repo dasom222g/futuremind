@@ -32,9 +32,13 @@ const Layout = ({ children }) => {
 
   // view
   return (
+    // <div
+    //   ref={scrollAreaRef}
+    //   className={`h-full overflow-auto bg-future-gray-800 text-white`}
+    // >
     <div
       ref={scrollAreaRef}
-      className={`h-full overflow-auto bg-future-gray-800 text-white`}
+      className={`h-full overflow-auto bg-future-gray-800 text-white max-w-[768px] mx-auto`}
     >
       <Header />
       <main className={`h-full`}>{children}</main>

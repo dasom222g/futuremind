@@ -12,3 +12,11 @@
     @apply flex flex-col gap-5 lg:gap-10;
   }
 }
+
+.react-page-scroller-wrap > div {
+  width: 100% !important;
+}
+
+/* .react-page-scroller-wrap > div {
+  width: 100%;
+} */
