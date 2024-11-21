@@ -28,21 +28,23 @@ const SubPageTemplate = ({ pageData }) => {
   // view
   return (
     <>
-      <section className={`bg-future-gray-700 h-full`}>
+      <section className={`bg-future-gray-700 h-full lg:min-w-450`}>
         {/* START: Hero영역 */}
         <div className="opacity-20">
           <img
             src={`.././images/sub-${pageData.mainPage}.png`}
             alt={`${pageData.mainPage} 이미지`}
-            className={`h-[160px] w-full object-cover`}
+            className={`h-[160px] lg:h-[580px] w-full object-cover`}
           />
         </div>
         <i className="block w-full h-1 bg-gradient-bar bg-no-repeat bg-cover"></i>
         {/* END: Hero영역 */}
         <div className="h-full">
-          <div className="px-1/12">
+          <div className="px-1/12 lg:px-1/5">
             {/* START: Content영역 */}
-            <div className={`py-12 text-future-${pageData.page}`}>
+            <div
+              className={`py-12 lg:py-40 lg:flex lg:gap-32 text-future-${pageData.page}`}
+            >
               <div className="flex flex-col gap-4 lg:gap-8">
                 <motion.div
                   key={`icon-${pageData.id}-${new Date().getTime()}`}

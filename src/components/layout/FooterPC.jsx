@@ -6,7 +6,7 @@ const Footer = () => {
 
   // view
   return (
-    <footer className="bg-black bg-opacity-30 text-white py-2 block ">
+    <footer className="bg-black bg-opacity-30 text-white py-2 block lg:flex lg:pl-[160px] lg:pr-20">
       <h2>
         <img
           src="/images/logo-footer.png"
@@ -14,7 +14,7 @@ const Footer = () => {
           className="mx-auto"
         />
       </h2>
-      <ul className="flex flex-col gap-2 pt-4">
+      <ul className="flex flex-col lg:flex-row gap-2 lg:gap-0 lg:ml-auto pt-4 lg:pt-0">
         {contactList.map((contact) => (
           <li
             key={contact.id}
