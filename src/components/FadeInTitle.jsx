@@ -56,14 +56,20 @@ const FadeInTitle = () => {
 
   // view
   return (
-    <h3 ref={ref} className="text-6xl font-semibold leading-tight">
-      <motion.p animate={controls1} initial={initialAnimate}>
-        우리는 <span className="text-future-blue-400">비지니스</span>의
-      </motion.p>
-      <motion.p animate={controls2} initial={initialAnimate}>
-        <span className="text-future-blue-400">모든 분야</span>를 아우릅니다.
-      </motion.p>
-    </h3>
+    <>
+      <h3
+        ref={ref}
+        className="text-3xl lg:text-6xl font-semibold leading-tight"
+      >
+        <motion.p animate={controls1} initial={initialAnimate}>
+          우리는 <span className="text-future-blue-400">비지니스</span>의
+        </motion.p>
+        <motion.p animate={controls2} initial={initialAnimate}>
+          <span className="text-future-blue-400">모든 분야</span>를 아우릅니다.
+        </motion.p>
+      </h3>
+      <i className="block bg-white w-full h-[2px] lg:hidden mt-8"></i>
+    </>
   );
 };
 

@@ -13,6 +13,7 @@ import { isMenuOpenState, mainSectionNumState } from "../data/state";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import FadeInTitle from "../components/FadeInTitle";
 import InfiniteFadeInTitle from "../components/InfiniteFadeInTitle";
+import MainSolutionItem from "../components/MainSolutionCard";
 
 const Home = () => {
   // logic
@@ -77,11 +78,16 @@ const Home = () => {
             {/* 두번째 메인 영역 */}
             <MainSection>
               <FadeInTitle /> {/* 타이틀 영역 */}
-              {/* 무한롤링 영역 */}
-              <div className="pt-16 -ml-40 -mr-20">
+              {/* 무한롤링 영역 (pc버전) */}
+              <div className="pt-16 -ml-40 -mr-20 hidden lg:block">
                 <InfiniteRollingCard cardList={solutionCardList} />
               </div>
-              {/* // 무한롤링 영역 */}
+              {/* // 무한롤링 영역 (pc버전) */}
+              {/* 무한롤링 영역 (모바일버전) */}
+              <div className="lg:hidden">
+                <MainSolutionItem cardList={solutionCardList} />
+              </div>
+              {/* // 무한롤링 영역 (모바일버전) */}
             </MainSection>
             {/* // 두번째 메인 영역 */}
             {/* 세번째 메인 영역 */}

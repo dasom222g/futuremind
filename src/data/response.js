@@ -106,9 +106,9 @@ export const solutionCardList = [
   },
   {
     id: 3,
-    category: "consulting",
-    sub: "예비 / 초기 창업자를 위한",
-    title: "AI컨설팅",
+    category: "education",
+    sub: "직업, 성별,연령 제한 없는",
+    title: "AI교육",
   },
 ];
 
