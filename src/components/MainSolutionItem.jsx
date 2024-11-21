@@ -6,8 +6,8 @@ const MainSolutionItem = ({ cardList }) => {
       {cardList.map((card) => (
         <div key={card.id} className="py-3">
           <p className="text-lg pb-4">
-            {card.sub}
-            <span className="text-future-blue-400">{card.title}</span>
+            0{card.id} {card.sub}
+            <span className="text-future-blue-400"> {card.title}</span>
           </p>
           <img
             src={`/images/card-${card.category}.png`}

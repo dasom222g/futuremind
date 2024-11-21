@@ -57,10 +57,7 @@ const FadeInTitle = () => {
   // view
   return (
     <>
-      <h3
-        ref={ref}
-        className="text-3xl lg:text-6xl font-semibold leading-tight"
-      >
+      <h3 ref={ref} className="text-3xl font-semibold leading-tight">
         <motion.p animate={controls1} initial={initialAnimate}>
           우리는 <span className="text-future-blue-400">비지니스</span>의
         </motion.p>
