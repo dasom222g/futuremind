@@ -4,7 +4,7 @@ const MainSection = ({ children, type }) => {
   // logic
   // view
   return (
-    <div className="h-full overflow-hidden overflow-x-auto">
+    <div className="h-full overflow-hidden overflow-x-auto block">
       <section
         className={`h-full px-7 lg:px-20 bg-future-gray-800 relative lg:min-w-450 pt-28 lg:pt-[187px]`}
       >

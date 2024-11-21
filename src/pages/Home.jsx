@@ -13,7 +13,8 @@ import { isMenuOpenState, mainSectionNumState } from "../data/state";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import FadeInTitle from "../components/FadeInTitle";
 import InfiniteFadeInTitle from "../components/InfiniteFadeInTitle";
-import MainSolutionItem from "../components/MainSolutionCard";
+import MainSolutionItem from "../components/MainSolutionItem";
+import MainCardMobile from "../components/MainCardMobile";
 
 const Home = () => {
   // logic
@@ -94,8 +95,8 @@ const Home = () => {
             <MainSection type={"third"}>
               <div className="h-full flex flex-col">
                 <div>
-                  {/* 카드 영역 */}
-                  <div className="relative z-0 flex justify-center gap-12">
+                  {/* 카드 영역(pc버전) */}
+                  <div className="relative z-0 justify-center gap-12 hidden lg:flex">
                     <ul className="flex gap-16">
                       {serviceList.map((service, index) => (
                         <Card
@@ -120,19 +121,31 @@ const Home = () => {
                       </button>
                     </div>
                   </div>
-                  {/* // 카드 영역 */}
+                  {/* // 카드 영역(pc버전) */}
+
+                  {/* 카드 영역(모바일 버전) */}
+                  <ul className="lg:hidden">
+                    {/* {serviceList.map((service) => (
+                      <MainCardMobile key={service.id} data={service} />
+                    ))} */}
+                    {/* TODO: */}
+                    <MainCardMobile data={serviceList[0]} />
+                  </ul>
+                  {/* 카드 영역(모바일 버전) */}
+
                   {/* partners 영역 */}
-                  <div className="pt-14 pb-2 -ml-40 -mr-20 gap-">
+                  <div className="pt-14 pb-2 -ml-40 -mr-20 hidden lg:block">
                     <InfiniteRollingPartners />
                   </div>
                   {/* // partners 영역 */}
                 </div>
-                <div className="-ml-[160px] -mr-20 mt-auto">
+                <div className="-ml-[160px] -mr-20 mt-auto hidden lg:block">
                   <Footer />
                 </div>
               </div>
             </MainSection>
             {/* // 세번째 메인 영역 */}
+            {/* 모바일 세번째 메인 영역 */}
           </ReactPageScroller>
         </div>
       </div>
