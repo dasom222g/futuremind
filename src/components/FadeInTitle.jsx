@@ -68,7 +68,7 @@ const FadeInTitle = () => {
           <span className="text-future-blue-400">모든 분야</span>를 아우릅니다.
         </motion.p>
       </h3>
-      <i className="block bg-white w-full h-[2px] lg:hidden mt-8"></i>
+      <i className="block bg-white w-full h-[2px] lg:hidden mt-8 mb-5"></i>
     </>
   );
 };

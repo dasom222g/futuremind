@@ -12,6 +12,7 @@ const MainSolutionItem = ({ cardList }) => {
           <img
             src={`/images/card-${card.category}.png`}
             alt={`${card.category} 이미지`}
+            className="rounded-xl"
           />
         </div>
       ))}
