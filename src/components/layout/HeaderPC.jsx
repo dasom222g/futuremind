@@ -43,7 +43,7 @@ const Header = () => {
       <motion.header
         ref={ref}
         animate={controls}
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-8 max-w-[768px] mx-auto`}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-8 lg:px-20 lg:py-[60px] lg:max-w-[768px] lg:mx-auto`}
       >
         <h1>
           <button
@@ -55,7 +55,7 @@ const Header = () => {
               src="/images/logo.png"
               alt="futuremind 로고"
               // style={{ height: 67 }}
-              className="max-w-none h-12"
+              className="max-w-none h-12 lg:h-[67px]"
             />
           </button>
         </h1>

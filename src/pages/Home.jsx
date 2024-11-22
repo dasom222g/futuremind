@@ -1,41 +1,17 @@
 import React, { useEffect } from "react";
 import ReactPageScroller from "react-page-scroller";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import InfiniteRollingCard from "../components/InfiniteRollingCard";
-import Card from "../components/Card";
 import { mainTitleList, serviceList, solutionCardList } from "../data/response";
 import MainSection from "../components/layout/MainSection";
-import Footer from "../components/layout/Footer";
-import InfiniteRollingPartners from "../components/InfiniteRollingPartners";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { isMenuOpenState, mainSectionNumState } from "../data/state";
-import { useRecoilState, useSetRecoilState } from "recoil";
 import FadeInTitle from "../components/FadeInTitle";
 import InfiniteFadeInTitle from "../components/InfiniteFadeInTitle";
-import MainSolutionItem from "../components/MainSolutionItem";
+import MainSolutionMobile from "../components/MainSolutionMobile";
 import MainCardMobile from "../components/MainCardMobile";
-import useMediaQuery, { BREAKPOINTS } from "../hooks/useMediaquery";
 
 const Home = () => {
   // logic
-
-  const [mainSectionNum, setMainSectionNum] =
-    useRecoilState(mainSectionNumState);
-
-  const setIsMenuOpen = useSetRecoilState(isMenuOpenState);
-
-  const handleAosRefresh = () => {
-    const elements = document.querySelectorAll("[data-aos]");
-    elements.forEach((element) => {
-      element.classList.add("aos-animate");
-    });
-  };
-
-  const handlePageScroll = (num, type) => {
-    type === "after" && setMainSectionNum(num);
-    handleAosRefresh();
-  };
 
   useEffect(() => {
     // AOS초기화
@@ -89,7 +65,7 @@ const Home = () => {
               {/* // 무한롤링 영역 (pc버전) */}
               {/* 무한롤링 영역 (모바일버전) */}
               <div>
-                <MainSolutionItem cardList={solutionCardList} />
+                <MainSolutionMobile cardList={solutionCardList} />
               </div>
               {/* // 무한롤링 영역 (모바일버전) */}
             </MainSection>

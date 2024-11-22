@@ -13,7 +13,7 @@ import { isMenuOpenState, mainSectionNumState } from "../data/state";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import FadeInTitle from "../components/FadeInTitle";
 import InfiniteFadeInTitle from "../components/InfiniteFadeInTitle";
-import MainSolutionItem from "../components/MainSolutionItem";
+import MainSolutionItem from "../components/MainSolutionMobile";
 import MainCardMobile from "../components/MainCardMobile";
 import useMediaQuery, { BREAKPOINTS } from "../hooks/useMediaquery";
 
