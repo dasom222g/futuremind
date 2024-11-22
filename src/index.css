@@ -15,6 +15,7 @@
 
 .react-page-scroller-wrap > div {
   width: 100% !important;
+  height: 100dvh !important;
 }
 
 /* .react-page-scroller-wrap > div {
